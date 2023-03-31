@@ -1,0 +1,25 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "airbnb",
+    "airbnb-typescript",
+    "airbnb/hooks",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "rules": {
+    "react/function-component-definition": [2, { "namedComponents": "arrow-function" }],
+    "@typescript-eslint/no-floating-promises": 0,
+    "linebreak-style": 0,
+    "@typescript-eslint/no-use-before-define": 0,
+    "react/jsx-props-no-spreading": 0,
+    "react/self-closing-comp": 0,
+    "max-len": 0,
+    "arrow-parens": 0,
+    "object-curly-newline": 0,
+    "no-param-reassign": 0,
+    "react/jsx-one-expression-per-line": 0
+  }
+}
