@@ -67,6 +67,7 @@ const SidebarContain = styled.div<{ displayProps: string }>`
   align-items: center;
   background-color: ${({ theme }) => theme.colors.black};
   animation: ${fadeIn} 2s ease-in-out;
+  z-index: 11;
 `;
 
 const SidebarItemsContain = styled.div`
