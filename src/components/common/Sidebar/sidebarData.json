@@ -1,6 +1,6 @@
 [
   { "key": "0", "menuText": "ABOUT", "menuTextDelay": 0 },
   { "key": "1", "menuText": "SKILLS", "menuTextDelay": 0.5 },
-  { "key": "2", "menuText": "PROJECT", "menuTextDelay": 1 },
-  { "key": "3", "menuText": "CAREER", "menuTextDelay": 1.5 }
+  { "key": "2", "menuText": "CAREER", "menuTextDelay": 1 },
+  { "key": "3", "menuText": "PROJECT", "menuTextDelay": 1.5 }
 ]
