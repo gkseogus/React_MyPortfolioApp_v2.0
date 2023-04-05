@@ -3,6 +3,10 @@ import MEDIA_QUERY_END_POINT from 'utils/constants';
 export const colors = {
   black: '#2B2B2B',
   white: '#FFFFFF',
+  gray: '#DCDCDC',
+  grey900: '#5D5D5D',
+  red: '#FF4747',
+  shadow: 'rgba(0, 0, 0, 0.5)',
 };
 
 export type ColorTheme = typeof colors;
