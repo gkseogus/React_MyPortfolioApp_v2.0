@@ -36,7 +36,8 @@ const NavbarContain = styled.div`
   align-items: center;
   justify-content: space-between;
   top: 0px;
-  background-color: none;
+  background-color: ${({ theme }) => theme.colors.white};
+  z-index: 10;
 `;
 
 const NavbarTitle = styled.title`
