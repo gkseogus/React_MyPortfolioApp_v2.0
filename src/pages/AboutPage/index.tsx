@@ -37,15 +37,16 @@ const AboutPage = () => {
             을 좋아하는
           </AboutPageTitle>
           <AboutPageTitle marginTopProps="50px">개발자 한대현 입니다.</AboutPageTitle>
-          <BtnContain>
+          <InfoContain>
+            <AboutPageInfoText isHover={false}>Call: 010-2246-6787</AboutPageInfoText>
             <AboutPageEmailBtn
               onClick={() => {
                 handleCopyClipBoard('fbzbffldj@gmail.com');
               }}
             >
-              <AboutPageEmailBtnText>G-mail: fbzbffldj@gmail.com</AboutPageEmailBtnText>
+              <AboutPageInfoText isHover>G-mail: fbzbffldj@gmail.com</AboutPageInfoText>
             </AboutPageEmailBtn>
-          </BtnContain>
+          </InfoContain>
           <SocialMenu>
             <SocialMenuList>
               {aboutLogoData.map(items => (
@@ -144,13 +145,15 @@ const AboutPageTitle = styled.div<{ marginTopProps: string }>`
   margin-top: ${({ marginTopProps }) => marginTopProps};
 `;
 
-const BtnContain = styled.div`
+const InfoContain = styled.div`
   width: 100%;
-  height: 20px;
+  height: 50px;
   position: absolute;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 10px;
   margin-top: 40px;
 `;
 
@@ -162,13 +165,13 @@ const AboutPageEmailBtn = styled.button`
   cursor: pointer;
 `;
 
-const AboutPageEmailBtnText = styled.span`
+const AboutPageInfoText = styled.span<{ isHover: boolean }>`
   height: 20px;
   font-size: 16px;
   font-weight: bold;
   color: ${({ theme }) => theme.colors.grey900};
   :hover {
-    color: ${({ theme }) => theme.colors.red};
+    color: ${({ isHover, theme }) => isHover && theme.colors.red};
   }
 `;
 
