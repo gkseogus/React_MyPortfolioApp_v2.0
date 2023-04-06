@@ -52,6 +52,7 @@ const NavbarContain = styled.div<{ isScroll: boolean }>`
   align-items: center;
   justify-content: space-between;
   top: 0px;
+  transition: 1s;
   background-color: ${({ isScroll, theme }) => (isScroll ? theme.colors.gray : theme.colors.white)};
   z-index: 10;
 `;
@@ -70,6 +71,7 @@ const HamburgerBtn = styled.button<{ isScroll: boolean; displayProps: string }>`
   height: 50px;
   margin-right: 60px;
   display: ${({ displayProps }) => displayProps};
+  transition: 1s;
   background-color: ${({ isScroll, theme }) => (isScroll ? theme.colors.gray : theme.colors.white)};
   border: 0;
   cursor: pointer;
