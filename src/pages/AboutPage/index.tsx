@@ -1,7 +1,7 @@
 import React from 'react';
 import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
-import aboutLogoData from 'pages/AboutPage/aboutData';
+import ABOUT_LOGO_DATA from 'pages/AboutPage/aboutData';
 
 const AboutPage = () => {
   /**
@@ -49,7 +49,7 @@ const AboutPage = () => {
           </InfoContain>
           <SocialMenu>
             <SocialMenuList>
-              {aboutLogoData.map(items => (
+              {ABOUT_LOGO_DATA.map(items => (
                 <SocialMenuListItem key={items.iconKey}>
                   <SocialMenuLink href={items.iconLink} target="_blank" rel="noopener noreferrer">
                     <SocialMenuIcon src={items.iconImg} alt={items.iconAlt} />
