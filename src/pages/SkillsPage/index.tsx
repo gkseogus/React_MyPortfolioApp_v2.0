@@ -2,36 +2,33 @@ import React from 'react';
 import styled from '@emotion/styled';
 import SKILLS_LOGO_DATA from 'pages/SkillsPage/skillsData';
 
-const SkillsPage = () => {
-  console.log('Test');
-  return (
-    <SkillsPageContain>
-      <SkillsPageTitle>SKILL</SkillsPageTitle>
-      <SkillsPageSubTitleContain>
-        <SkillsPageSubTitle>FRONT</SkillsPageSubTitle>
-        <SkillsPageSubTitle>BACK</SkillsPageSubTitle>
-        <SkillsPageSubTitle>MANAGE</SkillsPageSubTitle>
-      </SkillsPageSubTitleContain>
-      <SkillsGridContain>
-        <SkillsGridItems className="left">
-          {SKILLS_LOGO_DATA.slice(0, 10).map(items => (
-            <SkillsGirdItemsImg key={items.iconKey} src={items.iconImg} alt={items.iconAlt} />
-          ))}
-        </SkillsGridItems>
-        <SkillsGridItems className="center">
-          {SKILLS_LOGO_DATA.slice(11, 16).map(items => (
-            <SkillsGirdItemsImg key={items.iconKey} src={items.iconImg} alt={items.iconAlt} />
-          ))}
-        </SkillsGridItems>
-        <SkillsGridItems className="right">
-          {SKILLS_LOGO_DATA.slice(16).map(items => (
-            <SkillsGirdItemsImg key={items.iconKey} src={items.iconImg} alt={items.iconAlt} />
-          ))}
-        </SkillsGridItems>
-      </SkillsGridContain>
-    </SkillsPageContain>
-  );
-};
+const SkillsPage = () => (
+  <SkillsPageContain>
+    <SkillsPageTitle>SKILL</SkillsPageTitle>
+    <SkillsPageSubTitleContain>
+      <SkillsPageSubTitle>FRONT</SkillsPageSubTitle>
+      <SkillsPageSubTitle>BACK</SkillsPageSubTitle>
+      <SkillsPageSubTitle>MANAGE</SkillsPageSubTitle>
+    </SkillsPageSubTitleContain>
+    <SkillsGridContain>
+      <SkillsGridItems className="left">
+        {SKILLS_LOGO_DATA.slice(0, 10).map(items => (
+          <SkillsGirdItemsImg key={items.iconKey} src={items.iconImg} alt={items.iconAlt} />
+        ))}
+      </SkillsGridItems>
+      <SkillsGridItems className="center">
+        {SKILLS_LOGO_DATA.slice(11, 16).map(items => (
+          <SkillsGirdItemsImg key={items.iconKey} src={items.iconImg} alt={items.iconAlt} />
+        ))}
+      </SkillsGridItems>
+      <SkillsGridItems className="right">
+        {SKILLS_LOGO_DATA.slice(16).map(items => (
+          <SkillsGirdItemsImg key={items.iconKey} src={items.iconImg} alt={items.iconAlt} />
+        ))}
+      </SkillsGridItems>
+    </SkillsGridContain>
+  </SkillsPageContain>
+);
 
 export default SkillsPage;
 
