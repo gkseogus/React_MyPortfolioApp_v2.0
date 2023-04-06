@@ -60,7 +60,7 @@ const AboutPage = () => {
           </SocialMenu>
         </GridItems>
         <GridItems>
-          <img src={`${process.env.PUBLIC_URL}/images/bulb.gif`} alt="bulbImg" />
+          <img src={`${process.env.PUBLIC_URL}/images/AboutPageImgs/bulb.gif`} alt="bulbImg" />
         </GridItems>
       </GridContain>
     </AboutPageContain>
@@ -169,7 +169,7 @@ const AboutPageInfoText = styled.span<{ isHover: boolean }>`
   height: 20px;
   font-size: 16px;
   font-weight: bold;
-  color: ${({ theme }) => theme.colors.grey900};
+  color: ${({ theme }) => theme.colors.gray900};
   :hover {
     color: ${({ isHover, theme }) => isHover && theme.colors.red};
   }
