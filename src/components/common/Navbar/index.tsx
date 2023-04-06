@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import { useTheme } from '@emotion/react';
 import Hamburger from 'components/icon/Hamburger';
-import Sidebar from '../Sidebar';
+import Sidebar from 'components/common/Sidebar';
 
 const Navbar = () => {
   const {

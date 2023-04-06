@@ -1,7 +1,7 @@
 import React from 'react';
 import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
-import aboutLogoData from 'pages/AboutPage/aboutData';
+import ABOUT_LOGO_DATA from 'pages/AboutPage/aboutData';
 
 const AboutPage = () => {
   /**
@@ -37,18 +37,19 @@ const AboutPage = () => {
             을 좋아하는
           </AboutPageTitle>
           <AboutPageTitle marginTopProps="50px">개발자 한대현 입니다.</AboutPageTitle>
-          <BtnContain>
+          <InfoContain>
+            <AboutPageInfoText isHover={false}>Call: 010-2246-6787</AboutPageInfoText>
             <AboutPageEmailBtn
               onClick={() => {
                 handleCopyClipBoard('fbzbffldj@gmail.com');
               }}
             >
-              <AboutPageEmailBtnText>G-mail: fbzbffldj@gmail.com</AboutPageEmailBtnText>
+              <AboutPageInfoText isHover>G-mail: fbzbffldj@gmail.com</AboutPageInfoText>
             </AboutPageEmailBtn>
-          </BtnContain>
+          </InfoContain>
           <SocialMenu>
             <SocialMenuList>
-              {aboutLogoData.map(items => (
+              {ABOUT_LOGO_DATA.map(items => (
                 <SocialMenuListItem key={items.iconKey}>
                   <SocialMenuLink href={items.iconLink} target="_blank" rel="noopener noreferrer">
                     <SocialMenuIcon src={items.iconImg} alt={items.iconAlt} />
@@ -59,7 +60,7 @@ const AboutPage = () => {
           </SocialMenu>
         </GridItems>
         <GridItems>
-          <img src={`${process.env.PUBLIC_URL}/images/bulb.gif`} alt="bulbImg" />
+          <img src={`${process.env.PUBLIC_URL}/images/AboutPageImgs/bulb.gif`} alt="bulbImg" />
         </GridItems>
       </GridContain>
     </AboutPageContain>
@@ -144,13 +145,15 @@ const AboutPageTitle = styled.div<{ marginTopProps: string }>`
   margin-top: ${({ marginTopProps }) => marginTopProps};
 `;
 
-const BtnContain = styled.div`
+const InfoContain = styled.div`
   width: 100%;
-  height: 20px;
+  height: 50px;
   position: absolute;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 10px;
   margin-top: 40px;
 `;
 
@@ -162,13 +165,13 @@ const AboutPageEmailBtn = styled.button`
   cursor: pointer;
 `;
 
-const AboutPageEmailBtnText = styled.span`
+const AboutPageInfoText = styled.span<{ isHover: boolean }>`
   height: 20px;
   font-size: 16px;
   font-weight: bold;
-  color: ${({ theme }) => theme.colors.grey900};
+  color: ${({ theme }) => theme.colors.gray900};
   :hover {
-    color: ${({ theme }) => theme.colors.red};
+    color: ${({ isHover, theme }) => isHover && theme.colors.red};
   }
 `;
 
