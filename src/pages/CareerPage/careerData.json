@@ -1,0 +1,47 @@
+[
+  {
+    "key": 0,
+    "iconType": "baby",
+    "date": "2000.01.28 ",
+    "title": "출생",
+    "infoText": "고향: 서울",
+    "subInfoText": "",
+    "text": "제가 태어난 날 입니다."
+  },
+  {
+    "key": 1,
+    "iconType": "school",
+    "date": "2008 ~ 2019",
+    "title": "학창시절",
+    "infoText": "",
+    "subInfoText": "",
+    "text": "초,중,고를 별 탈 없이 지냈습니다."
+  },
+  {
+    "key": 2,
+    "iconType": "school",
+    "date": "2019 ~ 2023",
+    "title": "한림대학교",
+    "infoText": "주전공: 빅데이터, 부전공: 스마트IOT",
+    "subInfoText": "졸업유무: 졸업",
+    "text": "4년 동안 학우들과 함께 배운 이론을 토대로 학술발표회, 졸업 프로젝트 등 온갖 프로젝트를 하기 시작했습니다."
+  },
+  {
+    "key": 3,
+    "iconType": "office",
+    "date": "2022.01.03 ~ 2022.06.31",
+    "title": "에이치나인",
+    "infoText": "부서: R&D, 직함: 팀원",
+    "subInfoText": "고용형태: 인턴",
+    "text": "저의 첫 회사입니다. js, ts, react, redux 세미나를 진행하였고 LG웹 사이트에 대한 QA 업무를 맡게 되었습니다."
+  },
+  {
+    "key": 4,
+    "iconType": "office",
+    "date": "2022.08.07 ~ ",
+    "title": "진진시스템",
+    "infoText": "부서: 시스템개발부, 직함: 사원",
+    "subInfoText": "고용형태: 정규직",
+    "text": "전국체육대회 사이트, 스포츠 지원포털, 체육정보시스템 유지보수를 진행 중 입니다."
+  }
+]

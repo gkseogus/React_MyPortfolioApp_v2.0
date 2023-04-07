@@ -5,7 +5,7 @@ import { keyframes, useTheme } from '@emotion/react';
 import SIDE_MENU_ITEMS from 'components/common/Sidebar/sidebarData.json';
 
 interface SideMenuItemsFace {
-  key: string;
+  key: number;
   menuTextDelay: number;
   menuText: string;
 }

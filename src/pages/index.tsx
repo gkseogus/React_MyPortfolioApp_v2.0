@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import Navbar from 'components/common/Navbar';
 import AboutPage from 'pages/AboutPage';
 import SkillsPage from 'pages/SkillsPage';
+import CareerPage from 'pages/CareerPage';
 
 const MainPage = () => {
   console.log('Test');
@@ -12,6 +13,7 @@ const MainPage = () => {
       <MainPageContain>
         <AboutPage />
         <SkillsPage />
+        <CareerPage />
       </MainPageContain>
     </>
   );
@@ -25,6 +27,7 @@ const MainPageContain = styled.div`
   position: relative;
   display: flex;
   margin-top: 80px;
+  gap: 300px;
   flex-direction: column;
   align-items: center;
 `;
