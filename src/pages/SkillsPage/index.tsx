@@ -96,6 +96,7 @@ const SkillsGridItems = styled.div`
   background: ${({ theme }) => theme.colors.gray};
   border-radius: 10px;
   :hover {
+    background: ${({ theme }) => theme.colors.orange50};
     transition: 300ms;
   }
 `;
