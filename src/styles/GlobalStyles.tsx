@@ -10,6 +10,9 @@ const globalStyles = css`
     font-family: 'Noto Sans KR', sans-serif;
     letter-spacing: 0.5px;
   }
+  ::-webkit-scrollbar {
+    display: none;
+  }
   * {
     box-sizing: border-box;
   }
