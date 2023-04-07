@@ -11,10 +11,16 @@ const Navbar = () => {
   const [isScroll, setIsScroll] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
+  /**
+   * 햄버거 메뉴 클릭 이벤트 함수
+   */
   const toggleSide = () => {
     setIsOpen(true);
   };
 
+  /**
+   * 스크롤 다운 이벤트 함수
+   */
   const handleScroll = () => {
     if (window.scrollY >= 50) {
       setIsScroll(true);
