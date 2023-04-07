@@ -6,7 +6,7 @@ import Sidebar from 'components/common/Sidebar';
 
 const Navbar = () => {
   const {
-    colors: { black },
+    colors: { white, orange },
   } = useTheme();
   const [isScroll, setIsScroll] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
@@ -38,9 +38,9 @@ const Navbar = () => {
 
   return (
     <NavbarContain isScroll={isScroll}>
-      <NavbarTitle>HDH</NavbarTitle>
+      <NavbarTitle isScroll={isScroll}>HDH</NavbarTitle>
       <HamburgerBtn isScroll={isScroll} onClick={() => toggleSide()} displayProps={isOpen ? 'none' : 'normal'}>
-        <Hamburger color={black} />
+        <Hamburger color={isScroll ? white : orange} />
       </HamburgerBtn>
       <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} />
     </NavbarContain>
@@ -59,17 +59,19 @@ const NavbarContain = styled.div<{ isScroll: boolean }>`
   justify-content: space-between;
   top: 0px;
   transition: 1s;
-  background-color: ${({ isScroll, theme }) => (isScroll ? theme.colors.gray : theme.colors.white)};
+  background-color: ${({ isScroll, theme }) => (isScroll ? theme.colors.orange : theme.colors.white)};
   z-index: 10;
 `;
 
-const NavbarTitle = styled.title`
+const NavbarTitle = styled.title<{ isScroll: boolean }>`
   width: 50px;
   height: 50px;
   display: flex;
   margin-left: 60px;
   font-size: 32px;
   font-weight: bold;
+  transition: 1s;
+  color: ${({ isScroll, theme }) => (isScroll ? theme.colors.white : theme.colors.orange)};
 `;
 
 const HamburgerBtn = styled.button<{ isScroll: boolean; displayProps: string }>`
@@ -78,7 +80,7 @@ const HamburgerBtn = styled.button<{ isScroll: boolean; displayProps: string }>`
   margin-right: 60px;
   display: ${({ displayProps }) => displayProps};
   transition: 1s;
-  background-color: ${({ isScroll, theme }) => (isScroll ? theme.colors.gray : theme.colors.white)};
+  background-color: ${({ isScroll, theme }) => (isScroll ? theme.colors.orange : theme.colors.white)};
   border: 0;
   cursor: pointer;
 `;

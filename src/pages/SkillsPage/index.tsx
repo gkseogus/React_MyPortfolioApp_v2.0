@@ -46,6 +46,7 @@ const SkillsPageTitle = styled.p`
   display: flex;
   font-size: 64px;
   font-weight: bold;
+  color: ${({ theme }) => theme.colors.orange};
 `;
 
 const SkillsPageSubTitleContain = styled.div`

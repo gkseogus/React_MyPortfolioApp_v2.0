@@ -128,7 +128,7 @@ const AboutPageTitleRoller = styled.div`
 const AboutPageTitleRollerText = styled.span`
   position: relative;
   top: 0;
-  color: ${({ theme }) => theme.colors.red};
+  color: ${({ theme }) => theme.colors.orange};
   animation: ${Roller} 5s infinite;
 `;
 
@@ -171,7 +171,7 @@ const AboutPageInfoText = styled.span<{ isHover: boolean }>`
   font-weight: bold;
   color: ${({ theme }) => theme.colors.gray900};
   :hover {
-    color: ${({ isHover, theme }) => isHover && theme.colors.red};
+    color: ${({ isHover, theme }) => isHover && theme.colors.orange};
   }
 `;
 
