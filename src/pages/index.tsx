@@ -5,6 +5,7 @@ import AboutPage from 'pages/AboutPage';
 import SkillsPage from 'pages/SkillsPage';
 import CareerPage from 'pages/CareerPage';
 import ProjectPage from 'pages/ProjectPage';
+import ScrollToTopButton from 'components/common/ScrollToTopButton';
 
 const MainPage = () => {
   console.log('Test');
@@ -17,6 +18,7 @@ const MainPage = () => {
         <CareerPage />
         <ProjectPage />
       </MainPageContain>
+      <ScrollToTopButton />
     </>
   );
 };
