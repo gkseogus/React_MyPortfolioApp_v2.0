@@ -1,6 +1,7 @@
 import React from 'react';
 import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
+import Swal from 'sweetalert2';
 import ABOUT_LOGO_DATA from 'pages/AboutPage/aboutData';
 
 const AboutPage = () => {
@@ -10,11 +11,19 @@ const AboutPage = () => {
   const handleCopyClipBoard = (text: string) => {
     try {
       navigator.clipboard.writeText(text);
-      // eslint-disable-next-line no-alert
-      alert('클립보드에 복사되었습니다.');
+      Swal.fire({
+        icon: 'success',
+        title: '클립보드에 복사되었습니다.',
+        showConfirmButton: false,
+        timer: 1500,
+      });
     } catch (error) {
-      // eslint-disable-next-line no-alert
-      alert('클립보드 복사에 실패하였습니다.');
+      Swal.fire({
+        icon: 'error',
+        title: '클립보드 복사에 실패하였습니다.',
+        showConfirmButton: false,
+        timer: 1500,
+      });
     }
   };
 

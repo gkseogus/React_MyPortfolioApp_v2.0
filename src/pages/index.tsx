@@ -4,6 +4,7 @@ import Navbar from 'components/common/Navbar';
 import AboutPage from 'pages/AboutPage';
 import SkillsPage from 'pages/SkillsPage';
 import CareerPage from 'pages/CareerPage';
+import ProjectPage from 'pages/ProjectPage';
 
 const MainPage = () => {
   console.log('Test');
@@ -14,6 +15,7 @@ const MainPage = () => {
         <AboutPage />
         <SkillsPage />
         <CareerPage />
+        <ProjectPage />
       </MainPageContain>
     </>
   );
