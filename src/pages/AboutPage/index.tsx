@@ -1,7 +1,6 @@
 import React from 'react';
 import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import Swal from 'sweetalert2';
 import ABOUT_LOGO_DATA from 'pages/AboutPage/aboutData';
 

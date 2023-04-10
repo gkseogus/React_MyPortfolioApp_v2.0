@@ -1,9 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { useTheme } from '@emotion/react';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import 'react-vertical-timeline-component/style.min.css';
 import CAREER_DATA from 'pages/CareerPage/careerData.json';
 import Baby64 from 'components/icon/Baby64';
