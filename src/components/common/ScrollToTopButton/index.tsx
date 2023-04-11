@@ -56,6 +56,7 @@ const ScrollToTop = styled.div`
   background-color: none;
   color: ${({ theme }) => theme.colors.orange};
   :hover {
-    animation: ${TopSlice} 1s infinite;
+    animation: ${TopSlice} 1s;
+    animation-fill-mode: forwards;
   }
 `;
