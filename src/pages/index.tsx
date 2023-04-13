@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import styled from '@emotion/styled';
 import Navbar from 'components/common/Navbar';
+import Footer from 'components/common/Footer';
 import AboutPage from 'pages/AboutPage';
 import SkillsPage from 'pages/SkillsPage';
 import CareerPage from 'pages/CareerPage';
@@ -30,6 +31,7 @@ const MainPage = () => {
         <ProjectPage projectRef={pageRefs.projectRef} />
       </MainPageContain>
       <ScrollToTopButton />
+      <Footer />
     </>
   );
 };
@@ -38,7 +40,7 @@ export default MainPage;
 
 const MainPageContain = styled.div`
   width: 100%;
-  height: 5000px;
+  height: 4800px;
   position: relative;
   display: flex;
   margin-top: 80px;
