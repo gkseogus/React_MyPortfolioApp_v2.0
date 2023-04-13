@@ -8,13 +8,17 @@ import Baby64 from 'components/icon/Baby64';
 import School64 from 'components/icon/School64';
 import Office64 from 'components/icon/Office64';
 
-const CareerPage = () => {
+interface CareerPageRefProps {
+  careerRef: React.RefObject<HTMLDivElement>;
+}
+
+const CareerPage = ({ careerRef }: CareerPageRefProps) => {
   const {
     colors: { white, black, orange },
   } = useTheme();
 
   return (
-    <CareerPageContain>
+    <CareerPageContain ref={careerRef}>
       <CareerPageTitle>CAREER</CareerPageTitle>
       <CareerPageTitleLineContain>
         <VerticalTimeline lineColor={black}>

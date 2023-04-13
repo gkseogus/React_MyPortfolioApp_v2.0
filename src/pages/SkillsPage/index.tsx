@@ -2,8 +2,12 @@ import React from 'react';
 import styled from '@emotion/styled';
 import SKILLS_LOGO_DATA from 'pages/SkillsPage/skillsData';
 
-const SkillsPage = () => (
-  <SkillsPageContain>
+interface SKillsPageRefProps {
+  skillsRef: React.RefObject<HTMLDivElement>;
+}
+
+const SkillsPage = ({ skillsRef }: SKillsPageRefProps) => (
+  <SkillsPageContain ref={skillsRef}>
     <SkillsPageTitle>SKILL</SkillsPageTitle>
     <SkillsPageSubTitleContain>
       <SkillsPageSubTitle>FRONT</SkillsPageSubTitle>

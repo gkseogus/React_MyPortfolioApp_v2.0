@@ -4,7 +4,11 @@ import styled from '@emotion/styled';
 import Swal from 'sweetalert2';
 import ABOUT_LOGO_DATA from 'pages/AboutPage/aboutData';
 
-const AboutPage = () => {
+interface AboutPageRefProps {
+  aboutRef: React.RefObject<HTMLDivElement>;
+}
+
+const AboutPage = ({ aboutRef }: AboutPageRefProps) => {
   /**
    * @param {string} text 복사할 문자열
    */
@@ -28,7 +32,7 @@ const AboutPage = () => {
   };
 
   return (
-    <AboutPageContain>
+    <AboutPageContain ref={aboutRef}>
       <GridContain>
         <GridItems>
           <AboutPageTitle marginTopProps="0px">

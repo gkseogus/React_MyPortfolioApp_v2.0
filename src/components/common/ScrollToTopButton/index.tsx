@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import { FiChevronsUp } from 'react-icons/fi';
+import { keyframes } from '@emotion/react';
 
 const ScrollToTopButton = () => {
   const [visible, setVisible] = useState<boolean>(false);
@@ -34,6 +35,15 @@ const ScrollToTopButton = () => {
 
 export default React.memo(ScrollToTopButton);
 
+const TopSlice = keyframes`
+  0%{
+    bottom: 70px;
+  }
+  100%{
+    bottom: 100px;
+  }
+`;
+
 const ScrollToTop = styled.div`
   position: fixed;
   width: 70%;
@@ -45,4 +55,8 @@ const ScrollToTop = styled.div`
   cursor: pointer;
   background-color: none;
   color: ${({ theme }) => theme.colors.orange};
+  :hover {
+    animation: ${TopSlice} 1s;
+    animation-fill-mode: forwards;
+  }
 `;
