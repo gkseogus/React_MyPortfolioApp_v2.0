@@ -4,7 +4,14 @@ import { useTheme } from '@emotion/react';
 import Hamburger from 'components/icon/Hamburger';
 import Sidebar from 'components/common/Sidebar';
 
-const Navbar = () => {
+interface PageRefProps {
+  aboutRef: React.RefObject<HTMLDivElement>;
+  skillsRef: React.RefObject<HTMLDivElement>;
+  careerRef: React.RefObject<HTMLDivElement>;
+  projectRef: React.RefObject<HTMLDivElement>;
+}
+
+const Navbar = ({ aboutRef, skillsRef, careerRef, projectRef }: PageRefProps) => {
   const {
     colors: { white, orange },
   } = useTheme();
@@ -42,7 +49,14 @@ const Navbar = () => {
       <HamburgerBtn isScroll={isScroll} onClick={() => toggleSide()} displayProps={isOpen ? 'none' : 'normal'}>
         <Hamburger color={isScroll ? white : orange} />
       </HamburgerBtn>
-      <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} />
+      <Sidebar
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+        aboutRef={aboutRef}
+        skillsRef={skillsRef}
+        careerRef={careerRef}
+        projectRef={projectRef}
+      />
     </NavbarContain>
   );
 };

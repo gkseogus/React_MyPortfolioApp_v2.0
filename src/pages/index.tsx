@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import styled from '@emotion/styled';
 import Navbar from 'components/common/Navbar';
 import AboutPage from 'pages/AboutPage';
@@ -8,15 +8,26 @@ import ProjectPage from 'pages/ProjectPage';
 import ScrollToTopButton from 'components/common/ScrollToTopButton';
 
 const MainPage = () => {
-  console.log('Test');
+  const pageRefs = {
+    aboutRef: useRef<HTMLDivElement>(null),
+    skillsRef: useRef<HTMLDivElement>(null),
+    careerRef: useRef<HTMLDivElement>(null),
+    projectRef: useRef<HTMLDivElement>(null),
+  };
+
   return (
     <>
-      <Navbar />
+      <Navbar
+        aboutRef={pageRefs.aboutRef}
+        skillsRef={pageRefs.skillsRef}
+        careerRef={pageRefs.careerRef}
+        projectRef={pageRefs.projectRef}
+      />
       <MainPageContain>
-        <AboutPage />
-        <SkillsPage />
-        <CareerPage />
-        <ProjectPage />
+        <AboutPage aboutRef={pageRefs.aboutRef} />
+        <SkillsPage skillsRef={pageRefs.skillsRef} />
+        <CareerPage careerRef={pageRefs.careerRef} />
+        <ProjectPage projectRef={pageRefs.projectRef} />
       </MainPageContain>
       <ScrollToTopButton />
     </>
