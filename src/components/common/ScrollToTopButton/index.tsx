@@ -35,7 +35,7 @@ const ScrollToTopButton = () => {
 
 export default React.memo(ScrollToTopButton);
 
-const TopSlice = keyframes`
+const topSlice = keyframes`
   0%{
     bottom: 70px;
   }
@@ -56,7 +56,7 @@ const ScrollToTop = styled.div`
   background-color: none;
   color: ${({ theme }) => theme.colors.orange};
   :hover {
-    animation: ${TopSlice} 1s;
+    animation: ${topSlice} 1s;
     animation-fill-mode: forwards;
   }
 `;
