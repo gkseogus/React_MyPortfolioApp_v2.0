@@ -2,36 +2,37 @@ import React from 'react';
 import styled from '@emotion/styled';
 import SKILLS_LOGO_DATA from 'pages/SkillsPage/skillsData';
 
-const SkillsPage = () => {
-  console.log('Test');
-  return (
-    <SkillsPageContain>
-      <SkillsPageTitle>SKILL</SkillsPageTitle>
-      <SkillsPageSubTitleContain>
-        <SkillsPageSubTitle>FRONT</SkillsPageSubTitle>
-        <SkillsPageSubTitle>BACK</SkillsPageSubTitle>
-        <SkillsPageSubTitle>MANAGE</SkillsPageSubTitle>
-      </SkillsPageSubTitleContain>
-      <SkillsGridContain>
-        <SkillsGridItems className="left">
-          {SKILLS_LOGO_DATA.slice(0, 10).map(items => (
-            <SkillsGirdItemsImg key={items.iconKey} src={items.iconImg} alt={items.iconAlt} />
-          ))}
-        </SkillsGridItems>
-        <SkillsGridItems className="center">
-          {SKILLS_LOGO_DATA.slice(11, 16).map(items => (
-            <SkillsGirdItemsImg key={items.iconKey} src={items.iconImg} alt={items.iconAlt} />
-          ))}
-        </SkillsGridItems>
-        <SkillsGridItems className="right">
-          {SKILLS_LOGO_DATA.slice(16).map(items => (
-            <SkillsGirdItemsImg key={items.iconKey} src={items.iconImg} alt={items.iconAlt} />
-          ))}
-        </SkillsGridItems>
-      </SkillsGridContain>
-    </SkillsPageContain>
-  );
-};
+interface SKillsPageRefProps {
+  skillsRef: React.RefObject<HTMLDivElement>;
+}
+
+const SkillsPage = ({ skillsRef }: SKillsPageRefProps) => (
+  <SkillsPageContain ref={skillsRef}>
+    <SkillsPageTitle>SKILL</SkillsPageTitle>
+    <SkillsPageSubTitleContain>
+      <SkillsPageSubTitle>FRONT</SkillsPageSubTitle>
+      <SkillsPageSubTitle>BACK</SkillsPageSubTitle>
+      <SkillsPageSubTitle>MANAGE</SkillsPageSubTitle>
+    </SkillsPageSubTitleContain>
+    <SkillsGridContain>
+      <SkillsGridItems className="left">
+        {SKILLS_LOGO_DATA.slice(0, 10).map(items => (
+          <SkillsGirdItemsImg key={items.iconKey} src={items.iconImg} alt={items.iconAlt} />
+        ))}
+      </SkillsGridItems>
+      <SkillsGridItems className="center">
+        {SKILLS_LOGO_DATA.slice(11, 16).map(items => (
+          <SkillsGirdItemsImg key={items.iconKey} src={items.iconImg} alt={items.iconAlt} />
+        ))}
+      </SkillsGridItems>
+      <SkillsGridItems className="right">
+        {SKILLS_LOGO_DATA.slice(16).map(items => (
+          <SkillsGirdItemsImg key={items.iconKey} src={items.iconImg} alt={items.iconAlt} />
+        ))}
+      </SkillsGridItems>
+    </SkillsGridContain>
+  </SkillsPageContain>
+);
 
 export default SkillsPage;
 
@@ -43,13 +44,13 @@ const SkillsPageContain = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 10px;
 `;
 
 const SkillsPageTitle = styled.p`
   display: flex;
   font-size: 64px;
   font-weight: bold;
+  color: ${({ theme }) => theme.colors.orange};
 `;
 
 const SkillsPageSubTitleContain = styled.div`
@@ -99,6 +100,7 @@ const SkillsGridItems = styled.div`
   background: ${({ theme }) => theme.colors.gray};
   border-radius: 10px;
   :hover {
+    background: ${({ theme }) => theme.colors.orange50};
     transition: 300ms;
   }
 `;

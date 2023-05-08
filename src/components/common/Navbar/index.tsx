@@ -1,33 +1,69 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from '@emotion/styled';
 import { useTheme } from '@emotion/react';
 import Hamburger from 'components/icon/Hamburger';
 import Sidebar from 'components/common/Sidebar';
 
-const Navbar = () => {
+interface PageRefProps {
+  aboutRef: React.RefObject<HTMLDivElement>;
+  skillsRef: React.RefObject<HTMLDivElement>;
+  careerRef: React.RefObject<HTMLDivElement>;
+  projectRef: React.RefObject<HTMLDivElement>;
+}
+
+const Navbar = ({ aboutRef, skillsRef, careerRef, projectRef }: PageRefProps) => {
   const {
-    colors: { black },
+    colors: { white, orange },
   } = useTheme();
+  const [isScroll, setIsScroll] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
+  /**
+   * 햄버거 메뉴 클릭 이벤트 함수
+   */
   const toggleSide = () => {
     setIsOpen(true);
   };
 
+  /**
+   * 스크롤 다운 이벤트 함수
+   */
+  const handleScroll = () => {
+    if (window.scrollY >= 50) {
+      setIsScroll(true);
+    } else {
+      setIsScroll(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <NavbarContain>
-      <NavbarTitle>HDH</NavbarTitle>
-      <HamburgerBtn onClick={() => toggleSide()} displayProps={isOpen ? 'none' : 'normal'}>
-        <Hamburger color={black} />
+    <NavbarContain isScroll={isScroll}>
+      <NavbarTitle isScroll={isScroll}>HDH</NavbarTitle>
+      <HamburgerBtn isScroll={isScroll} onClick={() => toggleSide()} displayProps={isOpen ? 'none' : 'normal'}>
+        <Hamburger color={isScroll ? white : orange} />
       </HamburgerBtn>
-      <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} />
+      <Sidebar
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+        aboutRef={aboutRef}
+        skillsRef={skillsRef}
+        careerRef={careerRef}
+        projectRef={projectRef}
+      />
     </NavbarContain>
   );
 };
 
 export default Navbar;
 
-const NavbarContain = styled.div`
+const NavbarContain = styled.div<{ isScroll: boolean }>`
   width: 100%;
   height: 80px;
   position: fixed;
@@ -36,25 +72,29 @@ const NavbarContain = styled.div`
   align-items: center;
   justify-content: space-between;
   top: 0px;
-  background-color: ${({ theme }) => theme.colors.white};
+  transition: 1s;
+  background-color: ${({ isScroll, theme }) => (isScroll ? theme.colors.orange : theme.colors.white)};
   z-index: 10;
 `;
 
-const NavbarTitle = styled.title`
+const NavbarTitle = styled.title<{ isScroll: boolean }>`
   width: 50px;
   height: 50px;
   display: flex;
   margin-left: 60px;
   font-size: 32px;
   font-weight: bold;
+  transition: 1s;
+  color: ${({ isScroll, theme }) => (isScroll ? theme.colors.white : theme.colors.orange)};
 `;
 
-const HamburgerBtn = styled.button<{ displayProps: string }>`
+const HamburgerBtn = styled.button<{ isScroll: boolean; displayProps: string }>`
   width: 50px;
   height: 50px;
   margin-right: 60px;
   display: ${({ displayProps }) => displayProps};
-  background-color: ${({ theme }) => theme.colors.white};
+  transition: 1s;
+  background-color: ${({ isScroll, theme }) => (isScroll ? theme.colors.orange : theme.colors.white)};
   border: 0;
   cursor: pointer;
 `;

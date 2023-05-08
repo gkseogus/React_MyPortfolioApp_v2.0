@@ -1,25 +1,38 @@
 import React from 'react';
 import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
+import Swal from 'sweetalert2';
 import ABOUT_LOGO_DATA from 'pages/AboutPage/aboutData';
 
-const AboutPage = () => {
+interface AboutPageRefProps {
+  aboutRef: React.RefObject<HTMLDivElement>;
+}
+
+const AboutPage = ({ aboutRef }: AboutPageRefProps) => {
   /**
    * @param {string} text 복사할 문자열
    */
   const handleCopyClipBoard = (text: string) => {
     try {
       navigator.clipboard.writeText(text);
-      // eslint-disable-next-line no-alert
-      alert('클립보드에 복사되었습니다.');
+      Swal.fire({
+        icon: 'success',
+        title: '클립보드에 복사되었습니다.',
+        showConfirmButton: false,
+        timer: 1500,
+      });
     } catch (error) {
-      // eslint-disable-next-line no-alert
-      alert('클립보드 복사에 실패하였습니다.');
+      Swal.fire({
+        icon: 'error',
+        title: '클립보드 복사에 실패하였습니다.',
+        showConfirmButton: false,
+        timer: 1500,
+      });
     }
   };
 
   return (
-    <AboutPageContain>
+    <AboutPageContain ref={aboutRef}>
       <GridContain>
         <GridItems>
           <AboutPageTitle marginTopProps="0px">
@@ -128,7 +141,7 @@ const AboutPageTitleRoller = styled.div`
 const AboutPageTitleRollerText = styled.span`
   position: relative;
   top: 0;
-  color: ${({ theme }) => theme.colors.red};
+  color: ${({ theme }) => theme.colors.orange};
   animation: ${Roller} 5s infinite;
 `;
 
@@ -171,7 +184,7 @@ const AboutPageInfoText = styled.span<{ isHover: boolean }>`
   font-weight: bold;
   color: ${({ theme }) => theme.colors.gray900};
   :hover {
-    color: ${({ isHover, theme }) => isHover && theme.colors.red};
+    color: ${({ isHover, theme }) => isHover && theme.colors.orange};
   }
 `;
 
