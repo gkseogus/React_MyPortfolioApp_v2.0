@@ -9,8 +9,8 @@ const Footer = () => (
       <br />
       <br />첫 번째 포트폴리오 사이트를 구경하고 싶으시면 아래 사이트를 눌러주세요
     </FooterTitle>
-    <FooterLink href="https://www.han-portfolio.com/" target="_blank">
-      https://www.han-portfolio.com/
+    <FooterLink href="https://master.d2cvr0cqafmcqo.amplifyapp.com" target="_blank">
+      첫번째 포트폴리오 사이트
     </FooterLink>
   </FooterContain>
 );
