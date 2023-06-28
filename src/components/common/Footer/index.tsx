@@ -28,11 +28,19 @@ const FooterContain = styled.div`
   text-align: center;
   bottom: 0px;
   background-color: ${({ theme }) => theme.colors.gray100};
+  @media screen and (max-width: 500px) {
+    width: 500px;
+    height: 80px;
+    background-color: ${({ theme }) => theme.colors.orange50};
+  }
 `;
 const FooterTitle = styled.span`
   font-size: 16px;
   font-weight: bold;
   color: ${({ theme }) => theme.colors.gray900};
+  @media screen and (max-width: 500px) {
+    display: none;
+  }
 `;
 
 const FooterLink = styled.a`
