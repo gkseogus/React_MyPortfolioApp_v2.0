@@ -9,6 +9,7 @@ const globalStyles = css`
   body {
     font-family: 'Noto Sans KR', sans-serif;
     letter-spacing: 0.5px;
+    margin: 0px;
   }
   ::-webkit-scrollbar {
     display: none;
