@@ -28,7 +28,7 @@ const MainPage = () => {
         <AboutPage aboutRef={pageRefs.aboutRef} />
         <SkillsPage skillsRef={pageRefs.skillsRef} />
         <CareerPage careerRef={pageRefs.careerRef} />
-        {/* <ProjectPage projectRef={pageRefs.projectRef} /> */}
+        <ProjectPage projectRef={pageRefs.projectRef} />
       </MainPageContain>
       <ScrollToTopButton />
       <Footer />
@@ -49,6 +49,7 @@ const MainPageContain = styled.div`
   align-items: center;
   @media screen and (max-width: 500px) {
     width: 500px;
+    height: 3200px;
     gap: 200px;
   }
 `;
