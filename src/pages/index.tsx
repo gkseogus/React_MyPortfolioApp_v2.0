@@ -26,6 +26,7 @@ const MainPage = () => {
       />
       <MainPageContain>
         <AboutPage aboutRef={pageRefs.aboutRef} />
+        <SkillsPage skillsRef={pageRefs.skillsRef} />
         {/* <SkillsPage skillsRef={pageRefs.skillsRef} />
         <CareerPage careerRef={pageRefs.careerRef} />
         <ProjectPage projectRef={pageRefs.projectRef} /> */}
@@ -49,5 +50,6 @@ const MainPageContain = styled.div`
   align-items: center;
   @media screen and (max-width: 500px) {
     width: 500px;
+    gap: 100px;
   }
 `;
