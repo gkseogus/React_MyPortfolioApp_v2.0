@@ -96,6 +96,9 @@ const SidebarContain = styled.div<{ displayProps: string }>`
   background-color: ${({ theme }) => theme.colors.black};
   animation: ${fadeIn} 1.5s ease-in-out;
   z-index: 11;
+  @media screen and (max-width: 500px) {
+    width: 300px;
+  }
 `;
 
 const SidebarItemsContain = styled.div`
@@ -105,6 +108,9 @@ const SidebarItemsContain = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  @media screen and (max-width: 500px) {
+    width: 250px;
+  }
 `;
 
 const SidebarItemsUl = styled.ul`
