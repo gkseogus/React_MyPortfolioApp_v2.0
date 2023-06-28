@@ -295,7 +295,7 @@ const BulbImg = styled.img`
 const MoContain = styled.div`
   display: none;
   @media screen and (max-width: 500px) {
-    width: 400px;
+    width: 100%;
     height: 400px;
     position: relative;
     display: flex;
