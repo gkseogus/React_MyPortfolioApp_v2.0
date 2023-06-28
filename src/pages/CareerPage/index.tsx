@@ -66,6 +66,9 @@ const CareerPageContain = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  @media screen and (max-width: 500px) {
+    width: 500px;
+  }
 `;
 
 const CareerPageTitle = styled.p`
@@ -73,6 +76,9 @@ const CareerPageTitle = styled.p`
   font-size: 64px;
   font-weight: bold;
   color: ${({ theme }) => theme.colors.orange};
+  @media screen and (max-width: 500px) {
+    font-size: 32px;
+  }
 `;
 
 const CareerPageTitleLineContain = styled.div`
@@ -80,6 +86,9 @@ const CareerPageTitleLineContain = styled.div`
   height: 100%;
   position: relative;
   display: inline-block;
+  @media screen and (max-width: 500px) {
+    width: 400px;
+  }
 `;
 
 const CareerPageInfoTitleText = styled.h2`
