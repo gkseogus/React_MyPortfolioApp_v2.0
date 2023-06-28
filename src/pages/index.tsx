@@ -47,4 +47,7 @@ const MainPageContain = styled.div`
   gap: 300px;
   flex-direction: column;
   align-items: center;
+  @media screen and (max-width: 500px) {
+    width: 500px;
+  }
 `;
