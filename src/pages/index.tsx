@@ -26,9 +26,9 @@ const MainPage = () => {
       />
       <MainPageContain>
         <AboutPage aboutRef={pageRefs.aboutRef} />
-        <SkillsPage skillsRef={pageRefs.skillsRef} />
+        {/* <SkillsPage skillsRef={pageRefs.skillsRef} />
         <CareerPage careerRef={pageRefs.careerRef} />
-        <ProjectPage projectRef={pageRefs.projectRef} />
+        <ProjectPage projectRef={pageRefs.projectRef} /> */}
       </MainPageContain>
       <ScrollToTopButton />
       <Footer />
