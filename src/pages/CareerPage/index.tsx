@@ -87,7 +87,7 @@ const CareerPageTitleLineContain = styled.div`
   position: relative;
   display: inline-block;
   @media screen and (max-width: 500px) {
-    width: 400px;
+    width: 100vw;
   }
 `;
 

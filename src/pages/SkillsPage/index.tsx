@@ -68,6 +68,7 @@ const SkillsPageSubTitleContain = styled.div`
   grid-template-columns: 1fr 1fr 1fr;
   @media screen and (max-width: 500px) {
     justify-items: center;
+    width: 100vw;
   }
 `;
 
@@ -101,6 +102,8 @@ const SkillsGridContain = styled.div`
     grid-template-columns: 0.75fr 0.75fr 1.5fr;
   }
   @media screen and (max-width: 500px) {
+    width: 100vw;
+    height: 300px;
     :has(.left:hover) {
       grid-template-columns: 0.8fr 0.5fr 0.5fr;
     }

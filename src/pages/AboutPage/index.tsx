@@ -144,7 +144,7 @@ const AboutPageContain = styled.div`
   align-items: center;
   justify-items: center;
   @media screen and (max-width: 500px) {
-    width: 500px;
+    width: 100vw;
     height: 400px;
   }
 `;
@@ -295,7 +295,7 @@ const BulbImg = styled.img`
 const MoContain = styled.div`
   display: none;
   @media screen and (max-width: 500px) {
-    width: 400px;
+    width: 100vw;
     height: 400px;
     position: relative;
     display: flex;

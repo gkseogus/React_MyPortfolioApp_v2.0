@@ -224,7 +224,7 @@ const ProjectPageContain = styled.div`
   justify-content: center;
   gap: 20px;
   @media screen and (max-width: 500px) {
-    width: 500px;
+    width: 100vw;
     height: 400px;
   }
 `;
@@ -450,7 +450,7 @@ const MoreText = styled.span`
 const MoProjectCarouselContain = styled.div`
   display: none;
   @media screen and (max-width: 500px) {
-    width: 100%;
+    width: 100vw;
     height: 300px;
     position: relative;
     display: flex;
