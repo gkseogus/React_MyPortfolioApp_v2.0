@@ -44,6 +44,10 @@ const SkillsPageContain = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  @media screen and (max-width: 500px) {
+    width: 500px;
+    height: 400px;
+  }
 `;
 
 const SkillsPageTitle = styled.p`
@@ -51,6 +55,9 @@ const SkillsPageTitle = styled.p`
   font-size: 64px;
   font-weight: bold;
   color: ${({ theme }) => theme.colors.orange};
+  @media screen and (max-width: 500px) {
+    font-size: 32px;
+  }
 `;
 
 const SkillsPageSubTitleContain = styled.div`
@@ -59,14 +66,20 @@ const SkillsPageSubTitleContain = styled.div`
   position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  @media screen and (max-width: 500px) {
+    justify-items: center;
+    width: 100vw;
+  }
 `;
 
 const SkillsPageSubTitle = styled.span`
-  width: 128px;
   display: flex;
   font-size: 32px;
   font-weight: bold;
   color: ${({ theme }) => theme.colors.gray900};
+  @media screen and (max-width: 500px) {
+    font-size: 24px;
+  }
 `;
 
 const SkillsGridContain = styled.div`
@@ -87,6 +100,21 @@ const SkillsGridContain = styled.div`
 
   :has(.right:hover) {
     grid-template-columns: 0.75fr 0.75fr 1.5fr;
+  }
+  @media screen and (max-width: 500px) {
+    width: 100vw;
+    height: 300px;
+    :has(.left:hover) {
+      grid-template-columns: 0.8fr 0.5fr 0.5fr;
+    }
+
+    :has(.center:hover) {
+      grid-template-columns: 0.5fr 0.8fr 0.5fr;
+    }
+
+    :has(.right:hover) {
+      grid-template-columns: 0.5fr 0.5fr 0.8fr;
+    }
   }
 `;
 
@@ -111,4 +139,8 @@ const SkillsGirdItemsImg = styled.img`
   height: 128px;
   object-fit: cover;
   flex-shrink: 0;
+  @media screen and (max-width: 500px) {
+    width: 64px;
+    height: 64px;
+  }
 `;

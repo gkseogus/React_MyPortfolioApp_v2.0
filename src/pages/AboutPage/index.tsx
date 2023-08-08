@@ -73,9 +73,47 @@ const AboutPage = ({ aboutRef }: AboutPageRefProps) => {
           </SocialMenu>
         </GridItems>
         <GridItems>
-          <img src={`${process.env.PUBLIC_URL}/images/AboutPageImgs/bulb.gif`} alt="bulbImg" />
+          <BulbImg src={`${process.env.PUBLIC_URL}/images/AboutPageImgs/bulb.gif`} alt="bulbImg" />
         </GridItems>
       </GridContain>
+      <MoContain>
+        <AboutPageTitle marginTopProps="0px">
+          <AboutPageTitleRoller>
+            <AboutPageTitleRollerText>
+              경험
+              <br />
+              소통
+              <br />
+              설계
+              <br />
+              구축
+            </AboutPageTitleRollerText>
+          </AboutPageTitleRoller>
+          을 좋아하는
+        </AboutPageTitle>
+        <AboutPageTitle marginTopProps="50px">개발자 한대현 입니다.</AboutPageTitle>
+        <InfoContain>
+          <AboutPageInfoText isHover={false}>Call: 010-2246-6787</AboutPageInfoText>
+          <AboutPageEmailBtn
+            onClick={() => {
+              handleCopyClipBoard('fbzbffldj@gmail.com');
+            }}
+          >
+            <AboutPageInfoText isHover>G-mail: fbzbffldj@gmail.com</AboutPageInfoText>
+          </AboutPageEmailBtn>
+        </InfoContain>
+        <SocialMenu>
+          <SocialMenuList>
+            {ABOUT_LOGO_DATA.map(items => (
+              <SocialMenuListItem key={items.iconKey}>
+                <SocialMenuLink href={items.iconLink} target="_blank" rel="noopener noreferrer">
+                  <SocialMenuIcon src={items.iconImg} alt={items.iconAlt} />
+                </SocialMenuLink>
+              </SocialMenuListItem>
+            ))}
+          </SocialMenuList>
+        </SocialMenu>
+      </MoContain>
     </AboutPageContain>
   );
 };
@@ -104,7 +142,11 @@ const AboutPageContain = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-items: center;
+  @media screen and (max-width: 500px) {
+    width: 100vw;
+    height: 400px;
+  }
 `;
 
 const GridContain = styled.div`
@@ -116,6 +158,9 @@ const GridContain = styled.div`
   gap: 10px;
   justify-items: center;
   align-items: center;
+  @media screen and (max-width: 500px) {
+    display: none;
+  }
 `;
 
 const GridItems = styled.div`
@@ -156,6 +201,9 @@ const AboutPageTitle = styled.div<{ marginTopProps: string }>`
   font-size: 30px;
   font-weight: bold;
   margin-top: ${({ marginTopProps }) => marginTopProps};
+  @media screen and (max-width: 500px) {
+    height: 0px;
+  }
 `;
 
 const InfoContain = styled.div`
@@ -168,6 +216,9 @@ const InfoContain = styled.div`
   align-items: center;
   gap: 10px;
   margin-top: 40px;
+  @media screen and (max-width: 500px) {
+    margin-top: 70px;
+  }
 `;
 
 const AboutPageEmailBtn = styled.button`
@@ -197,6 +248,9 @@ const SocialMenu = styled.div`
   justify-items: center;
   align-items: center;
   margin-top: 200px;
+  @media screen and (max-width: 500px) {
+    margin-top: 250px;
+  }
 `;
 
 const SocialMenuList = styled.ul`
@@ -231,4 +285,22 @@ const SocialMenuLink = styled.a`
 const SocialMenuIcon = styled.img`
   width: 32px;
   height: 32px;
+`;
+
+const BulbImg = styled.img`
+  width: 512px;
+  height: 512px;
+`;
+
+const MoContain = styled.div`
+  display: none;
+  @media screen and (max-width: 500px) {
+    width: 100vw;
+    height: 400px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+  }
 `;

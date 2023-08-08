@@ -31,7 +31,7 @@ const MainPage = () => {
         <ProjectPage projectRef={pageRefs.projectRef} />
       </MainPageContain>
       <ScrollToTopButton />
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };
@@ -39,12 +39,13 @@ const MainPage = () => {
 export default MainPage;
 
 const MainPageContain = styled.div`
-  width: 100%;
-  height: 4800px;
   position: relative;
   display: flex;
   margin-top: 80px;
   gap: 300px;
   flex-direction: column;
   align-items: center;
+  @media screen and (max-width: 500px) {
+    gap: 200px;
+  }
 `;

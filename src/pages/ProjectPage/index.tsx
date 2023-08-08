@@ -105,6 +105,69 @@ const ProjectPage = ({ projectRef }: ProjectPageRefProps) => {
           <ArrowContain />
         )}
       </ProjectCarouselContain>
+      <MoProjectCarouselContain>
+        {isPageCnt !== 0 ? (
+          <ArrowBtn
+            arrowTypeProps="left"
+            onClick={() => {
+              handlePageCnt('left');
+            }}
+          >
+            <AiOutlineLeft size={32} color={white50} />
+          </ArrowBtn>
+        ) : (
+          <ArrowContain />
+        )}
+        {projectItemsData.map(
+          items =>
+            // eslint-disable-next-line implicit-arrow-linebreak
+            isPageCnt === items.itemKey && (
+              <ProjectCarouseItemsContain key={items.itemKey}>
+                <GridContain>
+                  <ProjectImgTitle>{items.itemTitle}</ProjectImgTitle>
+                  <ProjectText>{items.itemText}</ProjectText>
+                  {isMoreBtn === items.itemKey ? (
+                    <ProjectSkillTextContain>
+                      <CloseBtn
+                        onClick={() => {
+                          setIsMoreBtn(-1);
+                        }}
+                      >
+                        <AiOutlineClose size={32} />
+                      </CloseBtn>
+                      <MoreText>
+                        기술스택: {items.itemSkills}
+                        <br />
+                        <br />
+                        형상관리: {items.itemVerSkills}
+                      </MoreText>
+                    </ProjectSkillTextContain>
+                  ) : (
+                    <ProjectMoreBtn
+                      onClick={() => {
+                        setIsMoreBtn(items.itemKey);
+                      }}
+                    >
+                      <ProjectMoreBtnText>더보기</ProjectMoreBtnText>
+                    </ProjectMoreBtn>
+                  )}
+                </GridContain>
+              </ProjectCarouseItemsContain>
+            ),
+        )}
+        {isPageCnt < projectItemsData.length - 1 ? (
+          <ArrowBtn
+            arrowTypeProps="right"
+            onClick={() => {
+              handlePageCnt('right');
+            }}
+          >
+            <AiOutlineRight size={32} color={white50} />
+          </ArrowBtn>
+        ) : (
+          <ArrowContain />
+        )}
+      </MoProjectCarouselContain>
     </ProjectPageContain>
   );
 };
@@ -160,6 +223,10 @@ const ProjectPageContain = styled.div`
   align-items: center;
   justify-content: center;
   gap: 20px;
+  @media screen and (max-width: 500px) {
+    width: 100vw;
+    height: 400px;
+  }
 `;
 
 const ProjectPageTitle = styled.p`
@@ -167,6 +234,9 @@ const ProjectPageTitle = styled.p`
   font-size: 64px;
   font-weight: bold;
   color: ${({ theme }) => theme.colors.orange};
+  @media screen and (max-width: 500px) {
+    font-size: 32px;
+  }
 `;
 
 const TopToggleBar = styled.div`
@@ -213,6 +283,9 @@ const ProjectCarouselContain = styled.div`
   justify-content: center;
   gap: 20px;
   background-color: ${({ theme }) => theme.colors.orange};
+  @media screen and (max-width: 500px) {
+    display: none;
+  }
 `;
 
 const ArrowContain = styled.div`
@@ -235,6 +308,10 @@ const ArrowBtn = styled.button<{ arrowTypeProps: string }>`
   :hover {
     animation: ${({ arrowTypeProps }) => (arrowTypeProps === 'left' ? leftSlice : rightSlice)} 1s;
   }
+  @media screen and (max-width: 500px) {
+    width: 32px;
+    height: 32px;
+  }
 `;
 
 const ProjectCarouseItemsContain = styled.div`
@@ -242,6 +319,13 @@ const ProjectCarouseItemsContain = styled.div`
   height: 440px;
   position: relative;
   display: flex;
+  @media screen and (max-width: 500px) {
+    width: 400px;
+    height: 300px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 `;
 
 const GridContain = styled.div`
@@ -252,6 +336,11 @@ const GridContain = styled.div`
   gap: 10px;
   justify-items: center;
   align-items: center;
+  @media screen and (max-width: 500px) {
+    display: flex;
+    grid-template-columns: none;
+    flex-direction: column;
+  }
 `;
 
 const GridItems = styled.div<{ isWhiteBg: boolean }>`
@@ -288,6 +377,9 @@ const ProjectText = styled.span`
   color: ${({ theme }) => theme.colors.gray900};
   white-space: pre-wrap;
   animation: ${fadeInY} 0.5s ease-in-out;
+  @media screen and (max-width: 500px) {
+    margin-bottom: 80px;
+  }
 `;
 
 const ProjectMoreBtn = styled.button`
@@ -306,6 +398,9 @@ const ProjectMoreBtn = styled.button`
   :hover {
     background-color: ${({ theme }) => theme.colors.black};
   }
+  @media screen and (max-width: 500px) {
+    bottom: 0;
+  }
 `;
 
 const ProjectMoreBtnText = styled.span`
@@ -323,6 +418,10 @@ const ProjectSkillTextContain = styled.span`
   height: 120px;
   background-color: ${({ theme }) => theme.colors.gray};
   animation: ${fadeInY} 1s ease-in-out;
+  @media screen and (max-width: 500px) {
+    top: 160px;
+    background-color: transparent;
+  }
 `;
 
 const CloseBtn = styled.button`
@@ -346,4 +445,19 @@ const MoreText = styled.span`
   margin-left: 20px;
   white-space: pre-wrap;
   color: ${({ theme }) => theme.colors.black};
+`;
+
+const MoProjectCarouselContain = styled.div`
+  display: none;
+  @media screen and (max-width: 500px) {
+    width: 100vw;
+    height: 300px;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    background-color: ${({ theme }) => theme.colors.orange};
+  }
 `;

@@ -51,12 +51,15 @@ const ScrollToTop = styled.div`
   bottom: 70px;
   height: 20px;
   font-size: 3rem;
-  z-index: 1;
+  z-index: 9;
   cursor: pointer;
   background-color: none;
   color: ${({ theme }) => theme.colors.orange};
   :hover {
     animation: ${topSlice} 1s;
     animation-fill-mode: forwards;
+  }
+  @media screen and (max-width: 500px) {
+    display: none;
   }
 `;

@@ -75,6 +75,9 @@ const NavbarContain = styled.div<{ isScroll: boolean }>`
   transition: 1s;
   background-color: ${({ isScroll, theme }) => (isScroll ? theme.colors.orange : theme.colors.white)};
   z-index: 10;
+  @media screen and (max-width: 500px) {
+    max-width: 500px;
+  }
 `;
 
 const NavbarTitle = styled.title<{ isScroll: boolean }>`
