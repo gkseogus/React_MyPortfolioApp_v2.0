@@ -1,3 +1,5 @@
+![made-with-react](https://github.com/gkseogus/React_MyPortfolioApp_v2.0/assets/76561461/dec43dd4-f37d-4938-bfde-af135aea4954)
+
 # 포트폴리오 두번째 버전 입니다.
 
 첫 번째 버전은 무엇을 보여주는지에 대해 명확성이 떨어지며, 기능위주로만 개발을 했습니다.
