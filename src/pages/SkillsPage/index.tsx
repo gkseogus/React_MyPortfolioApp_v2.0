@@ -125,7 +125,7 @@ const SkillsGridItems = styled.div`
   align-items: center;
   overflow: hidden;
   flex-wrap: wrap;
-  background: ${({ theme }) => theme.colors.gray};
+  background: ${({ theme }) => theme.colors.gray100};
   border-radius: 10px;
   :hover {
     background: ${({ theme }) => theme.colors.orange50};

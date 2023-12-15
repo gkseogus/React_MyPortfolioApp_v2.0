@@ -30,6 +30,10 @@ const Sidebar = ({
     colors: { white },
   } = useTheme();
 
+  /**
+   * div 요소로 이동시킴
+   * @param refType - 각 요소의 ref
+   */
   const handlePageMove = (refType: string) => {
     switch (refType) {
       case 'about':
@@ -109,23 +113,26 @@ const SidebarItemsContain = styled.div`
   align-items: center;
   justify-content: center;
   @media screen and (max-width: 500px) {
-    width: 250px;
+    width: 170px;
   }
 `;
 
 const SidebarItemsUl = styled.ul`
-  width: 200px;
-  height: 50%;
+  width: 450px;
+  height: 400px;
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 10px;
   margin-top: 400px;
   justify-content: center;
+  @media screen and (max-width: 500px) {
+    width: 170px;
+  }
 `;
 
 const SidebarItemsLi = styled.li<{ delay: number }>`
-  width: auto;
+  width: 200px;
   height: 80px;
   position: relative;
   display: flex;
@@ -134,30 +141,49 @@ const SidebarItemsLi = styled.li<{ delay: number }>`
   animation: ${fadeIn} 1.5s ease-in-out;
   animation-delay: ${({ delay }) => delay}s;
   animation-fill-mode: forwards;
+  @media screen and (max-width: 500px) {
+    width: 130px;
+  }
 `;
 
 const SidebarItemsBtn = styled.button`
-  width: 50px;
-  height: 50px;
-  margin-right: 60px;
+  width: 200px;
+  height: 80px;
+  position: relative;
   display: flex;
   background-color: ${({ theme }) => theme.colors.black};
   border: 0;
+  align-items: center;
   cursor: pointer;
+  @media screen and (max-width: 500px) {
+    width: 130px;
+  }
 `;
 
 const SidebarItemsText = styled.p`
-  font-size: 32px;
+  font-size: 36px;
   font-weight: bold;
   color: ${({ theme }) => theme.colors.white};
+  &:hover {
+    transform: translate(0, -10%);
+    color: ${({ theme }) => theme.colors.orange};
+  }
+  @media screen and (max-width: 500px) {
+    font-size: 20px;
+  }
 `;
 
 const CloseBtn = styled.button`
   width: 50px;
   height: 50px;
   margin-right: 60px;
+  position: relative;
   display: flex;
   background-color: ${({ theme }) => theme.colors.black};
   border: 0;
   cursor: pointer;
+  @media screen and (max-width: 500px) {
+    width: 40px;
+    height: 40px;
+  }
 `;

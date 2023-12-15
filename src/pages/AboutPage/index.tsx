@@ -10,12 +10,13 @@ interface AboutPageRefProps {
 
 const AboutPage = ({ aboutRef }: AboutPageRefProps) => {
   /**
-   * @param {string} text 복사할 문자열
+   * 이메일 클립보드 복사
    */
-  const handleCopyClipBoard = (text: string) => {
+  const handleCopyClipBoard = () => {
     try {
-      navigator.clipboard.writeText(text);
+      navigator.clipboard.writeText('fbzbffldj998@naver.com');
       Swal.fire({
+        width: '400px',
         icon: 'success',
         title: '클립보드에 복사되었습니다.',
         showConfirmButton: false,
@@ -52,12 +53,8 @@ const AboutPage = ({ aboutRef }: AboutPageRefProps) => {
           <AboutPageTitle marginTopProps="50px">개발자 한대현 입니다.</AboutPageTitle>
           <InfoContain>
             <AboutPageInfoText isHover={false}>Call: 010-2246-6787</AboutPageInfoText>
-            <AboutPageEmailBtn
-              onClick={() => {
-                handleCopyClipBoard('fbzbffldj@gmail.com');
-              }}
-            >
-              <AboutPageInfoText isHover>G-mail: fbzbffldj@gmail.com</AboutPageInfoText>
+            <AboutPageEmailBtn onClick={handleCopyClipBoard}>
+              <AboutPageInfoText isHover>G-mail: fbzbffldj998@naver.com</AboutPageInfoText>
             </AboutPageEmailBtn>
           </InfoContain>
           <SocialMenu>
@@ -94,12 +91,8 @@ const AboutPage = ({ aboutRef }: AboutPageRefProps) => {
         <AboutPageTitle marginTopProps="50px">개발자 한대현 입니다.</AboutPageTitle>
         <InfoContain>
           <AboutPageInfoText isHover={false}>Call: 010-2246-6787</AboutPageInfoText>
-          <AboutPageEmailBtn
-            onClick={() => {
-              handleCopyClipBoard('fbzbffldj@gmail.com');
-            }}
-          >
-            <AboutPageInfoText isHover>G-mail: fbzbffldj@gmail.com</AboutPageInfoText>
+          <AboutPageEmailBtn onClick={handleCopyClipBoard}>
+            <AboutPageInfoText isHover>G-mail: fbzbffldj998@naver.com</AboutPageInfoText>
           </AboutPageEmailBtn>
         </InfoContain>
         <SocialMenu>
@@ -175,6 +168,7 @@ const GridItems = styled.div`
 const AboutPageTitleRoller = styled.div`
   width: 100px;
   height: 4.125rem;
+  padding-left: 20px;
   line-height: 4rem;
   position: relative;
   overflow: hidden;
@@ -185,6 +179,8 @@ const AboutPageTitleRoller = styled.div`
 
 const AboutPageTitleRollerText = styled.span`
   position: relative;
+  font-size: 36px;
+  font-weight: 700;
   top: 0;
   color: ${({ theme }) => theme.colors.orange};
   animation: ${Roller} 5s infinite;
@@ -200,6 +196,7 @@ const AboutPageTitle = styled.div<{ marginTopProps: string }>`
   top: 100px;
   font-size: 30px;
   font-weight: bold;
+  letter-spacing: -2px;
   margin-top: ${({ marginTopProps }) => marginTopProps};
   @media screen and (max-width: 500px) {
     height: 0px;
@@ -233,7 +230,7 @@ const AboutPageInfoText = styled.span<{ isHover: boolean }>`
   height: 20px;
   font-size: 16px;
   font-weight: bold;
-  color: ${({ theme }) => theme.colors.gray900};
+  color: ${({ theme }) => theme.colors.gray300};
   :hover {
     color: ${({ isHover, theme }) => isHover && theme.colors.orange};
   }
@@ -275,7 +272,7 @@ const SocialMenuLink = styled.a`
   background-color: ${({ theme }) => theme.colors.white};
   text-align: center;
   transition: 0.6s;
-  box-shadow: 0 5px 4px ${({ theme }) => theme.colors.shadow};
+  box-shadow: 0 4px 8px 0 ${({ theme }) => theme.colors.shadow};
   &:hover {
     transform: translate(0, -10%);
     background-color: ${({ theme }) => theme.colors.gray};

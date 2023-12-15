@@ -46,7 +46,7 @@ const Navbar = ({ aboutRef, skillsRef, careerRef, projectRef }: PageRefProps) =>
   return (
     <NavbarContain isScroll={isScroll}>
       <NavbarTitle isScroll={isScroll}>HDH</NavbarTitle>
-      <HamburgerBtn isScroll={isScroll} onClick={() => toggleSide()} displayProps={isOpen ? 'none' : 'normal'}>
+      <HamburgerBtn isScroll={isScroll} onClick={toggleSide} displayProps={isOpen ? 'none' : 'normal'}>
         <Hamburger color={isScroll ? white : orange} />
       </HamburgerBtn>
       <Sidebar
@@ -100,4 +100,7 @@ const HamburgerBtn = styled.button<{ isScroll: boolean; displayProps: string }>`
   background-color: ${({ isScroll, theme }) => (isScroll ? theme.colors.orange : theme.colors.white)};
   border: 0;
   cursor: pointer;
+  @media screen and (max-width: 500px) {
+    margin-right: 100px;
+  }
 `;
