@@ -6,11 +6,13 @@ export const colors = {
   white50: '#F3EAE8',
   gray: '#DCDCDC',
   gray100: '#E2E2E2',
+  gray200: '#A7A7A7',
+  gray300: '#6E6E6E',
   gray900: '#5D5D5D',
   red: '#FF4747',
   orange: '#FF8F51',
   orange50: '#ffb279',
-  shadow: 'rgba(0, 0, 0, 0.5)',
+  shadow: 'rgba(0, 0, 0, 0.4)',
 };
 
 export type ColorTheme = typeof colors;
