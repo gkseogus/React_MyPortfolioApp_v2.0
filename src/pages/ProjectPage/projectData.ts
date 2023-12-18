@@ -1,7 +1,7 @@
 const projectItemsData = [
   {
     itemKey: 0,
-    itemTitle: '포트폴리오 웹, 모바일 버전',
+    itemTitle: '포트폴리오 웹 v1',
     itemImg: `${process.env.PUBLIC_URL}/images/ProjectPageImgs/projectCarouseImg0.svg`,
     itemAlt: 'projectCarouseImg0',
     itemText:
@@ -11,11 +11,11 @@ const projectItemsData = [
   },
   {
     itemKey: 1,
-    itemTitle: '포트폴리오 웹 버전',
+    itemTitle: '포트폴리오 웹 v2',
     itemImg: `${process.env.PUBLIC_URL}/images/ProjectPageImgs/projectCarouseImg1.svg`,
     itemAlt: 'projectCarouseImg1',
     itemText:
-      '처음에 기획했던 포트폴리오 웹 사이트가 \n 제 마음에 안 들어서 \n 웹 버전으로 다시 재 구축 하였습니다. \n 색상은 오렌지, 회색, 검정색, 흰색만 사용하였고 \n 디자인은 커리어리 + 당근마켓 \n 을 참고하여 제작하였습니다. ',
+      '처음에 기획했던 포트폴리오 웹 사이트가 제 마음에 안 들어서 웹 버전으로 \n 재 구축 하였습니다. \n 색상은 오렌지, 회색, 검정색, 흰색만 사용하였고 \n 디자인은 커리어리 + 당근마켓 \n 을 참고하여 제작하였습니다. ',
     itemSkills: 'TypeScript, React, emotion',
     itemVerSkills: 'AWS, Git, GitHub',
   },
@@ -26,7 +26,7 @@ const projectItemsData = [
     itemAlt: 'projectCarouseImg2',
     itemText: '전국체육대회 사이트의 \n 기록경기, 토너먼트 부분의 사이트 \n 유지보수 및 QA를 진행하였습니다.',
     itemSkills: 'JAVA, JSP, MySQL',
-    itemVerSkills: 'none',
+    itemVerSkills: 'Git Lab',
   },
   {
     itemKey: 3,
@@ -45,7 +45,7 @@ const projectItemsData = [
     itemAlt: 'projectCarouseImg4',
     itemText: '아이스하키 종목에 대한 \n 참가신청 및 정보제공에 대한 \n 사이트 구축을 진행하였습니다.',
     itemSkills: 'JAVA, JSP, Mybatis, Oracle',
-    itemVerSkills: 'none',
+    itemVerSkills: 'Git Lab',
   },
 ];
 
