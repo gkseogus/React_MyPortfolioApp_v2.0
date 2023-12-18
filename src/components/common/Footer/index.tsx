@@ -27,13 +27,15 @@ const FooterContain = styled.div`
   justify-content: center;
   text-align: center;
   bottom: 0px;
+  margin-top: 100px;
   background-color: ${({ theme }) => theme.colors.gray100};
   @media screen and (max-width: 500px) {
-    width: 500px;
+    max-width: 500px;
     height: 80px;
     background-color: ${({ theme }) => theme.colors.orange50};
   }
 `;
+
 const FooterTitle = styled.span`
   font-size: 16px;
   font-weight: bold;
