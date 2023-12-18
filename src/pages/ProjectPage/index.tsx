@@ -1,9 +1,9 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import { keyframes, useTheme } from '@emotion/react';
-import { AiOutlineClose, AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
+import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
 import projectItemsData from 'pages/ProjectPage/projectData';
+import MoreModal from 'components/common/MoreModal';
 
 interface ProjectPageRefProps {
   projectRef: React.RefObject<HTMLDivElement>;
@@ -16,6 +16,10 @@ const ProjectPage = ({ projectRef }: ProjectPageRefProps) => {
   const [isPageCnt, setIsPageCnt] = useState(0);
   const [isMoreBtn, setIsMoreBtn] = useState(-1);
 
+  /**
+   * 페이징 함수
+   * @param btnType - 좌,우 화살표 체킹
+   */
   const handlePageCnt = (btnType: string) => {
     if (isPageCnt > -1 && btnType === 'left') {
       setIsPageCnt((prevCount): number => prevCount - 1);
@@ -23,6 +27,14 @@ const ProjectPage = ({ projectRef }: ProjectPageRefProps) => {
     if (isPageCnt < projectItemsData.length && btnType === 'right') {
       setIsPageCnt((prevCount): number => prevCount + 1);
     }
+  };
+
+  /**
+   * 더보기 버튼
+   * @param itemKey - 더보기 선택한 프로젝트 item key
+   */
+  const handleMoreBtn = (itemKey: number) => {
+    setIsMoreBtn(itemKey);
   };
 
   return (
@@ -63,25 +75,27 @@ const ProjectPage = ({ projectRef }: ProjectPageRefProps) => {
                   <GridItems isWhiteBg>
                     <ProjectText>{items.itemText}</ProjectText>
                     {isMoreBtn === items.itemKey ? (
-                      <ProjectSkillTextContain>
-                        <CloseBtn
-                          onClick={() => {
-                            setIsMoreBtn(-1);
-                          }}
-                        >
-                          <AiOutlineClose size={32} />
-                        </CloseBtn>
-                        <MoreText>
-                          기술스택: {items.itemSkills}
-                          <br />
-                          <br />
-                          형상관리: {items.itemVerSkills}
-                        </MoreText>
-                      </ProjectSkillTextContain>
+                      <MoreModal
+                        onClose={() => {
+                          setIsMoreBtn(-1);
+                        }}
+                        modalTitleText={
+                          <MoreText>
+                            <MoreTitle>-기술스택-</MoreTitle>
+                            <br />
+                            {items.itemSkills}
+                            <br />
+                            <br />
+                            <MoreTitle>-형상관리-</MoreTitle>
+                            <br />
+                            {items.itemVerSkills}
+                          </MoreText>
+                        }
+                      />
                     ) : (
                       <ProjectMoreBtn
                         onClick={() => {
-                          setIsMoreBtn(items.itemKey);
+                          handleMoreBtn(items.itemKey);
                         }}
                       >
                         <ProjectMoreBtnText>더보기</ProjectMoreBtnText>
@@ -127,21 +141,23 @@ const ProjectPage = ({ projectRef }: ProjectPageRefProps) => {
                   <ProjectImgTitle>{items.itemTitle}</ProjectImgTitle>
                   <ProjectText>{items.itemText}</ProjectText>
                   {isMoreBtn === items.itemKey ? (
-                    <ProjectSkillTextContain>
-                      <CloseBtn
-                        onClick={() => {
-                          setIsMoreBtn(-1);
-                        }}
-                      >
-                        <AiOutlineClose size={32} />
-                      </CloseBtn>
-                      <MoreText>
-                        기술스택: {items.itemSkills}
-                        <br />
-                        <br />
-                        형상관리: {items.itemVerSkills}
-                      </MoreText>
-                    </ProjectSkillTextContain>
+                    <MoreModal
+                      onClose={() => {
+                        setIsMoreBtn(-1);
+                      }}
+                      modalTitleText={
+                        <MoreText>
+                          <MoreTitle>-기술스택-</MoreTitle>
+                          <br />
+                          {items.itemSkills}
+                          <br />
+                          <br />
+                          <MoreTitle>-형상관리-</MoreTitle>
+                          <br />
+                          {items.itemVerSkills}
+                        </MoreText>
+                      }
+                    />
                   ) : (
                     <ProjectMoreBtn
                       onClick={() => {
@@ -368,9 +384,12 @@ const ProjectImgTitle = styled.span`
   font-weight: bold;
   color: ${({ theme }) => theme.colors.white};
   animation: ${fadeInY} 0.5s ease-in-out;
+  @media screen and (max-width: 500px) {
+    font-size: 20px;
+  }
 `;
 
-const ProjectText = styled.span`
+const ProjectText = styled.p`
   font-size: 16px;
   font-weight: bold;
   margin-bottom: 100px;
@@ -379,6 +398,7 @@ const ProjectText = styled.span`
   animation: ${fadeInY} 0.5s ease-in-out;
   @media screen and (max-width: 500px) {
     margin-bottom: 80px;
+    letter-spacing: -2px;
   }
 `;
 
@@ -399,6 +419,8 @@ const ProjectMoreBtn = styled.button`
     background-color: ${({ theme }) => theme.colors.black};
   }
   @media screen and (max-width: 500px) {
+    width: 80px;
+    height: 40px;
     bottom: 0;
   }
 `;
@@ -409,42 +431,25 @@ const ProjectMoreBtnText = styled.span`
   color: ${({ theme }) => theme.colors.white50};
 `;
 
-const ProjectSkillTextContain = styled.span`
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  bottom: 0px;
-  width: 370px;
-  height: 120px;
-  background-color: ${({ theme }) => theme.colors.gray};
-  animation: ${fadeInY} 1s ease-in-out;
+const MoreTitle = styled.span`
+  font-size: 20px;
+  font-weight: bold;
+  color: ${({ theme }) => theme.colors.orange};
   @media screen and (max-width: 500px) {
-    top: 160px;
-    background-color: transparent;
+    font-size: 16px;
   }
-`;
-
-const CloseBtn = styled.button`
-  position: absolute;
-  display: flex;
-  right: 0px;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  background-color: transparent;
-  border: 0;
-  cursor: pointer;
 `;
 
 const MoreText = styled.span`
   font-size: 16px;
   font-weight: bold;
   text-align: left;
-  margin-top: 20px;
-  margin-left: 20px;
   white-space: pre-wrap;
   color: ${({ theme }) => theme.colors.black};
+  @media screen and (max-width: 500px) {
+    font-size: 12px;
+    letter-spacing: -1px;
+  }
 `;
 
 const MoProjectCarouselContain = styled.div`
