@@ -31,7 +31,7 @@ const MainPage = () => {
         <ProjectPage projectRef={pageRefs.projectRef} />
       </MainPageContain>
       <ScrollToTopButton />
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 };
