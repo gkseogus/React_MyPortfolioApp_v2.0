@@ -13,8 +13,8 @@ const ProjectPage = ({ projectRef }: ProjectPageRefProps) => {
   const {
     colors: { white50, black },
   } = useTheme();
-  const [isPageCnt, setIsPageCnt] = useState(0);
-  const [isMoreBtn, setIsMoreBtn] = useState(-1);
+  const [isPageCnt, setIsPageCnt] = useState<number>(0);
+  const [isMoreBtn, setIsMoreBtn] = useState<number>(-1);
 
   /**
    * 페이징 함수
