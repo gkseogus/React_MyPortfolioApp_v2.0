@@ -15,8 +15,8 @@ const Navbar = ({ aboutRef, skillsRef, careerRef, projectRef }: PageRefProps) =>
   const {
     colors: { white, orange },
   } = useTheme();
-  const [isScroll, setIsScroll] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
+  const [isScroll, setIsScroll] = useState<boolean>(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   /**
    * 햄버거 메뉴 클릭 이벤트 함수
