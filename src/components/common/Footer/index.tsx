@@ -28,11 +28,11 @@ const FooterContain = styled.div`
   text-align: center;
   bottom: 0px;
   margin-top: 100px;
-  background-color: ${({ theme }) => theme.colors.gray100};
+  background-color: ${({ theme }) => theme.colors.orange100};
   @media screen and (max-width: 500px) {
     max-width: 500px;
     height: 80px;
-    background-color: ${({ theme }) => theme.colors.orange50};
+    background-color: ${({ theme }) => theme.colors.orange};
   }
 `;
 
