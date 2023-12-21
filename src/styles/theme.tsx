@@ -12,6 +12,7 @@ export const colors = {
   red: '#FF4747',
   orange: '#FF8F51',
   orange50: '#ffb279',
+  orange100: '#FFD29B',
   shadow: 'rgba(0, 0, 0, 0.4)',
 };
 
