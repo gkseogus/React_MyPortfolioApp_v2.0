@@ -38,7 +38,7 @@ export default SkillsPage;
 
 const SkillsPageContain = styled.div`
   width: 1000px;
-  height: 800px;
+  height: 880px;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -47,6 +47,7 @@ const SkillsPageContain = styled.div`
   @media screen and (max-width: 500px) {
     width: 500px;
     height: 400px;
+    margin-top: 180px;
   }
 `;
 
@@ -54,9 +55,11 @@ const SkillsPageTitle = styled.p`
   display: flex;
   font-size: 64px;
   font-weight: bold;
+  margin-top: 80px;
   color: ${({ theme }) => theme.colors.orange};
   @media screen and (max-width: 500px) {
     font-size: 32px;
+    margin-top: 180px;
   }
 `;
 

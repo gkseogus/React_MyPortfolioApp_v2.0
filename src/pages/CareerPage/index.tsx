@@ -76,8 +76,10 @@ const CareerPageTitle = styled.p`
   font-size: 64px;
   font-weight: bold;
   color: ${({ theme }) => theme.colors.orange};
+  margin-top: 80px;
   @media screen and (max-width: 500px) {
     font-size: 32px;
+    margin-top: 80px;
   }
 `;
 
