@@ -130,7 +130,7 @@ const Roller = keyframes`
 
 const AboutPageContain = styled.div`
   width: 1000px;
-  height: 800px;
+  height: 880px;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -151,6 +151,7 @@ const GridContain = styled.div`
   gap: 10px;
   justify-items: center;
   align-items: center;
+  margin-top: 80px;
   @media screen and (max-width: 500px) {
     display: none;
   }
@@ -299,5 +300,6 @@ const MoContain = styled.div`
     flex-direction: column;
     align-content: center;
     justify-content: center;
+    margin-top: 180px;
   }
 `;
