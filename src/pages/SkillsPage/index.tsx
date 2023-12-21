@@ -76,7 +76,7 @@ const SkillsPageSubTitle = styled.span`
   display: flex;
   font-size: 32px;
   font-weight: bold;
-  color: ${({ theme }) => theme.colors.gray900};
+  color: ${({ theme }) => theme.colors.orange50};
   @media screen and (max-width: 500px) {
     font-size: 24px;
   }
@@ -84,7 +84,7 @@ const SkillsPageSubTitle = styled.span`
 
 const SkillsGridContain = styled.div`
   width: 100%;
-  height: 500px;
+  height: 600px;
   transition: 500ms;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -125,8 +125,9 @@ const SkillsGridItems = styled.div`
   align-items: center;
   overflow: hidden;
   flex-wrap: wrap;
-  background: ${({ theme }) => theme.colors.gray100};
+  background: ${({ theme }) => theme.colors.orange100};
   border-radius: 10px;
+  padding: 20px;
   :hover {
     background: ${({ theme }) => theme.colors.orange50};
     transition: 300ms;
