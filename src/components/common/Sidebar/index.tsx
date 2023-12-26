@@ -51,6 +51,7 @@ const Sidebar = ({
       default:
         aboutRef.current?.scrollIntoView({ behavior: 'smooth' });
     }
+    setIsOpen(false);
   };
 
   return (
