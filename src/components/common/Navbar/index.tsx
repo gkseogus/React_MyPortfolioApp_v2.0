@@ -58,8 +58,9 @@ const Navbar = ({ aboutRef, skillsRef, careerRef, projectRef }: PageRefProps) =>
       handleScroll();
       handleScrollProgress();
     });
+
     return () => {
-      window.addEventListener('scroll', () => {
+      window.removeEventListener('scroll', () => {
         handleScroll();
         handleScrollProgress();
       });
@@ -92,8 +93,8 @@ export default Navbar;
 const NavbarContain = styled.div<{ isScroll: boolean }>`
   width: 100%;
   height: 80px;
-  position: fixed;
   display: flex;
+  position: fixed;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
@@ -107,8 +108,8 @@ const NavbarContain = styled.div<{ isScroll: boolean }>`
 `;
 
 const NavbarTitle = styled.title<{ isScroll: boolean }>`
-  position: relative;
   display: flex;
+  position: relative;
   width: 50px;
   height: 50px;
   margin-left: 60px;
@@ -119,8 +120,8 @@ const NavbarTitle = styled.title<{ isScroll: boolean }>`
 `;
 
 const ScrollProgressBar = styled.div`
-  position: absolute;
   display: flex;
+  position: absolute;
   width: 50%;
   height: 30px;
   background-color: ${({ theme }) => theme.colors.white};

@@ -90,14 +90,14 @@ const fadeIn = keyframes`
 `;
 
 const SidebarContain = styled.div<{ displayProps: string }>`
-  position: relative;
   display: flex;
+  position: relative;
   width: 500px;
   height: 2000px;
   display: ${({ displayProps }) => displayProps};
   align-items: center;
   background-color: ${({ theme }) => theme.colors.black};
-  animation: ${fadeIn} 1.5s ease-in-out;
+  animation: ${fadeIn} 1s ease-in-out;
   z-index: 11;
   @media screen and (max-width: 500px) {
     width: 300px;
@@ -105,8 +105,8 @@ const SidebarContain = styled.div<{ displayProps: string }>`
 `;
 
 const SidebarItemsUl = styled.ul`
-  position: relative;
   display: flex;
+  position: relative;
   width: 450px;
   height: 400px;
   flex-direction: column;
@@ -119,13 +119,13 @@ const SidebarItemsUl = styled.ul`
 `;
 
 const SidebarItemsLi = styled.li<{ delay: number }>`
-  position: relative;
   display: flex;
+  position: relative;
   width: 200px;
   height: 80px;
   align-items: center;
   opacity: 0;
-  animation: ${fadeIn} 1.5s ease-in-out;
+  animation: ${fadeIn} 1.2s ease-in-out;
   animation-delay: ${({ delay }) => delay}s;
   animation-fill-mode: forwards;
   @media screen and (max-width: 500px) {
@@ -133,17 +133,31 @@ const SidebarItemsLi = styled.li<{ delay: number }>`
   }
 `;
 
-const SidebarItemsBtn = styled.button`
-  position: relative;
+const SharedButtonStyles = `
   display: flex;
-  width: 200px;
+  position: relative;
   height: 80px;
-  background-color: ${({ theme }) => theme.colors.black};
   border: 0;
-  align-items: center;
   cursor: pointer;
+`;
+
+const SidebarItemsBtn = styled.button`
+  ${SharedButtonStyles}
+  width: 200px;
+  background-color: ${({ theme }) => theme.colors.black};
   @media screen and (max-width: 500px) {
     width: 130px;
+  }
+`;
+
+const CloseBtn = styled.button`
+  ${SharedButtonStyles}
+  width: 50px;
+  height: 50px;
+  background-color: ${({ theme }) => theme.colors.black};
+  @media screen and (max-width: 500px) {
+    width: 40px;
+    height: 40px;
   }
 `;
 
@@ -151,25 +165,13 @@ const SidebarItemsText = styled.p`
   font-size: 36px;
   font-weight: bold;
   color: ${({ theme }) => theme.colors.white};
+  line-height: 80px;
+  outline: none;
   &:hover {
     transform: translate(0, -10%);
     color: ${({ theme }) => theme.colors.orange};
   }
   @media screen and (max-width: 500px) {
     font-size: 20px;
-  }
-`;
-
-const CloseBtn = styled.button`
-  position: relative;
-  display: flex;
-  width: 50px;
-  height: 50px;
-  background-color: ${({ theme }) => theme.colors.black};
-  border: 0;
-  cursor: pointer;
-  @media screen and (max-width: 500px) {
-    width: 40px;
-    height: 40px;
   }
 `;

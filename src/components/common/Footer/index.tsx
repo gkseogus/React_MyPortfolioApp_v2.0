@@ -9,7 +9,12 @@ const Footer = () => (
       <br />
       <br />첫 번째 포트폴리오 사이트를 구경하고 싶으시면 아래 사이트를 눌러주세요
     </FooterTitle>
-    <FooterLink href="https://master.d2cvr0cqafmcqo.amplifyapp.com" target="_blank">
+    <FooterLink
+      href="https://master.d2cvr0cqafmcqo.amplifyapp.com"
+      target="_blank"
+      rel="noopener noreferrer"
+      title="첫 번째 포트폴리오"
+    >
       첫번째 포트폴리오 사이트
     </FooterLink>
   </FooterContain>
@@ -20,8 +25,8 @@ export default Footer;
 const FooterContain = styled.div`
   width: 100%;
   height: 200px;
-  position: relative;
   display: flex;
+  position: relative;
   flex-direction: column;
   align-items: center;
   justify-content: center;

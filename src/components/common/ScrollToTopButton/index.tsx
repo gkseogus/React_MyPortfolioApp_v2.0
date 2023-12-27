@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from '@emotion/styled';
 import { FiChevronsUp } from 'react-icons/fi';
 import { keyframes } from '@emotion/react';
@@ -24,7 +24,13 @@ const ScrollToTopButton = () => {
     });
   };
 
-  window.addEventListener('scroll', handleToggleVisible);
+  useEffect(() => {
+    window.addEventListener('scroll', handleToggleVisible);
+
+    return () => {
+      window.removeEventListener('scroll', handleToggleVisible);
+    };
+  }, []);
 
   return (
     <ScrollToTop>
@@ -55,6 +61,7 @@ const ScrollToTop = styled.div`
   cursor: pointer;
   background-color: none;
   color: ${({ theme }) => theme.colors.orange};
+  transition: bottom 0.5s ease;
   :hover {
     animation: ${topSlice} 1s;
     animation-fill-mode: forwards;
