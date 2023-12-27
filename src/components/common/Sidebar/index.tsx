@@ -58,6 +58,8 @@ const Sidebar = ({
     <SidebarContain displayProps={isOpen ? 'flex' : 'none'}>
       <SidebarItemsUl>
         <CloseBtn
+          role="button"
+          aria-label="사이드 바 닫기"
           onClick={() => {
             setIsOpen(false);
           }}
@@ -66,7 +68,7 @@ const Sidebar = ({
         </CloseBtn>
         {SIDE_MENU_ITEMS.map((items: SideMenuItemsFace) => (
           <SidebarItemsLi key={items.key} delay={items.menuTextDelay}>
-            <SidebarItemsBtn onClick={() => handlePageMove(items.refType)}>
+            <SidebarItemsBtn role="button" aria-label="사이드 메뉴" onClick={() => handlePageMove(items.refType)}>
               <SidebarItemsText>{items.menuText}</SidebarItemsText>
             </SidebarItemsBtn>
           </SidebarItemsLi>

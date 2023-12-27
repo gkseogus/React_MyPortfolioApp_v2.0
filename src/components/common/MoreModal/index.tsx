@@ -44,7 +44,7 @@ const MoreModal = ({ onClose, modalTitleText }: MoreModalFace) => {
   return (
     <ModalMainContain ref={modalRef} role="dialog">
       <ModalSubContain>
-        <CloseBtn onClick={onClose}>
+        <CloseBtn role="button" aria-label="모달창 닫기" onClick={onClose}>
           <AiOutlineClose size={32} />
         </CloseBtn>
         <ModalTitle>{modalTitleText}</ModalTitle>

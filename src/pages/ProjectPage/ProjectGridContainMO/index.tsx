@@ -48,6 +48,8 @@ const ProjectGridContainMO = ({
         {itemImg.map((imgItem, idx) => idx === pageCnt && <ImgBox key={imgItem} src={imgItem} alt={itemAlt} />)}
         <ImgPageNationContain>
           <ImgPageNationBtn
+            role="button"
+            aria-label="좌측 페이지네이션"
             disabled={pageCnt === 0}
             onClick={() => {
               handleImgPageNation('left');
@@ -57,6 +59,8 @@ const ProjectGridContainMO = ({
           </ImgPageNationBtn>
           <ImgPageNationText>{`${pageCnt + 1} / ${itemImg.length}`}</ImgPageNationText>
           <ImgPageNationBtn
+            role="button"
+            aria-label="우측 페이지네이션"
             disabled={pageCnt === itemImg.length - 1}
             onClick={() => {
               handleImgPageNation('right');
