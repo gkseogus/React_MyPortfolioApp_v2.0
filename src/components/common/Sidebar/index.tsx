@@ -56,24 +56,22 @@ const Sidebar = ({
 
   return (
     <SidebarContain displayProps={isOpen ? 'flex' : 'none'}>
-      <SidebarItemsContain>
-        <SidebarItemsUl>
-          {SIDE_MENU_ITEMS.map((items: SideMenuItemsFace) => (
-            <SidebarItemsLi key={items.key} delay={items.menuTextDelay}>
-              <SidebarItemsBtn onClick={() => handlePageMove(items.refType)}>
-                <SidebarItemsText>{items.menuText}</SidebarItemsText>
-              </SidebarItemsBtn>
-            </SidebarItemsLi>
-          ))}
-        </SidebarItemsUl>
-      </SidebarItemsContain>
-      <CloseBtn
-        onClick={() => {
-          setIsOpen(false);
-        }}
-      >
-        <Close color={white} />
-      </CloseBtn>
+      <SidebarItemsUl>
+        <CloseBtn
+          onClick={() => {
+            setIsOpen(false);
+          }}
+        >
+          <Close color={white} />
+        </CloseBtn>
+        {SIDE_MENU_ITEMS.map((items: SideMenuItemsFace) => (
+          <SidebarItemsLi key={items.key} delay={items.menuTextDelay}>
+            <SidebarItemsBtn onClick={() => handlePageMove(items.refType)}>
+              <SidebarItemsText>{items.menuText}</SidebarItemsText>
+            </SidebarItemsBtn>
+          </SidebarItemsLi>
+        ))}
+      </SidebarItemsUl>
     </SidebarContain>
   );
 };
@@ -92,10 +90,10 @@ const fadeIn = keyframes`
 `;
 
 const SidebarContain = styled.div<{ displayProps: string }>`
-  width: 500px;
-  height: 2000px;
   position: relative;
   display: flex;
+  width: 500px;
+  height: 2000px;
   display: ${({ displayProps }) => displayProps};
   align-items: center;
   background-color: ${({ theme }) => theme.colors.black};
@@ -106,23 +104,11 @@ const SidebarContain = styled.div<{ displayProps: string }>`
   }
 `;
 
-const SidebarItemsContain = styled.div`
-  width: 450px;
-  height: 100%;
+const SidebarItemsUl = styled.ul`
   position: relative;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  @media screen and (max-width: 500px) {
-    width: 170px;
-  }
-`;
-
-const SidebarItemsUl = styled.ul`
   width: 450px;
   height: 400px;
-  position: relative;
-  display: flex;
   flex-direction: column;
   gap: 10px;
   margin-top: 400px;
@@ -133,10 +119,10 @@ const SidebarItemsUl = styled.ul`
 `;
 
 const SidebarItemsLi = styled.li<{ delay: number }>`
-  width: 200px;
-  height: 80px;
   position: relative;
   display: flex;
+  width: 200px;
+  height: 80px;
   align-items: center;
   opacity: 0;
   animation: ${fadeIn} 1.5s ease-in-out;
@@ -148,10 +134,10 @@ const SidebarItemsLi = styled.li<{ delay: number }>`
 `;
 
 const SidebarItemsBtn = styled.button`
-  width: 200px;
-  height: 80px;
   position: relative;
   display: flex;
+  width: 200px;
+  height: 80px;
   background-color: ${({ theme }) => theme.colors.black};
   border: 0;
   align-items: center;
@@ -175,11 +161,10 @@ const SidebarItemsText = styled.p`
 `;
 
 const CloseBtn = styled.button`
-  width: 50px;
-  height: 50px;
-  margin-right: 60px;
   position: relative;
   display: flex;
+  width: 50px;
+  height: 50px;
   background-color: ${({ theme }) => theme.colors.black};
   border: 0;
   cursor: pointer;
