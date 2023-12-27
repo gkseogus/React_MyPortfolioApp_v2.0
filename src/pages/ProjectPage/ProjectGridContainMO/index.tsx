@@ -161,7 +161,6 @@ const ImgPageNationContain = styled.div`
   align-items: center;
   justify-content: center;
   text-align: center;
-  gap: 50px;
   @media screen and (max-width: 500px) {
     gap: 10px;
   }
@@ -186,7 +185,7 @@ const ImgPageNationText = styled.span`
   overflow: hidden;
   text-overflow: ellipsis;
   @media screen and (max-width: 500px) {
-    width: 250px;
+    width: 200px;
   }
 `;
 
