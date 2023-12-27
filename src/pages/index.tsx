@@ -39,8 +39,8 @@ const MainPage = () => {
 export default MainPage;
 
 const MainPageContain = styled.div`
-  position: relative;
   display: flex;
+  position: relative;
   margin-top: 80px;
   gap: 300px;
   flex-direction: column;
