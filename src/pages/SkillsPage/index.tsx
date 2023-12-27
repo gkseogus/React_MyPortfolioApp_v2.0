@@ -45,7 +45,7 @@ const SkillsPageContain = styled.div`
   align-items: center;
   justify-content: center;
   @media screen and (max-width: 500px) {
-    width: 500px;
+    width: 100vw;
     height: 400px;
     margin-top: 180px;
   }
