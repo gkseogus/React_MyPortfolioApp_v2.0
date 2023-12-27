@@ -73,7 +73,7 @@ const Navbar = ({ aboutRef, skillsRef, careerRef, projectRef }: PageRefProps) =>
       <ScrollProgressBar>
         <ScrollProgress widthProps={scrollProgressWidth} />
       </ScrollProgressBar>
-      <HamburgerBtn isScroll={isScroll} onClick={toggleSide} displayProps={isOpen ? 'none' : 'normal'}>
+      <HamburgerBtn role="button" aria-label="햄버거 메뉴 열기" isScroll={isScroll} onClick={toggleSide} displayProps={isOpen ? 'none' : 'normal'}>
         <Hamburger color={isScroll ? white : orange} />
       </HamburgerBtn>
       <Sidebar
