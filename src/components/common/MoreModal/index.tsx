@@ -12,11 +12,17 @@ const MoreModal = ({ onClose, modalTitleText }: MoreModalFace) => {
   const modalRef = useRef<HTMLDivElement>(null);
 
   /**
-   * background 클릭 시 모달 창 닫히는 함수
+   * background 클릭 or EScape 버튼 클릭 시 모달 창 닫히는 함수
    */
   const handleBackGround = useCallback(
-    (e: MouseEvent) => {
-      if (modalRef.current && !modalRef.current.contains(e.target as Node)) {
+    (e: MouseEvent | KeyboardEvent) => {
+      const isMouseClick = e.type === 'click';
+      const isKeyboardEvent = e.type === 'keydown';
+      const pressedKey = (e as KeyboardEvent).key;
+
+      if (modalRef.current && isMouseClick && !modalRef.current.contains(e.target as Node)) {
+        onClose();
+      } else if (isKeyboardEvent && pressedKey === 'Escape') {
         onClose();
       }
     },
@@ -36,7 +42,7 @@ const MoreModal = ({ onClose, modalTitleText }: MoreModalFace) => {
   }, [handleBackGround]);
 
   return (
-    <ModalMainContain ref={modalRef}>
+    <ModalMainContain ref={modalRef} role="dialog">
       <ModalSubContain>
         <CloseBtn onClick={onClose}>
           <AiOutlineClose size={32} />
@@ -59,20 +65,16 @@ const fadeIn = keyframes`
 `;
 
 const ModalMainContain = styled.div`
-  position: absolute;
   display: flex;
+  position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
   justify-content: center;
   align-items: center;
   overflow-y: scroll;
   z-index: 10;
-  -ms-overflow-style: none;
   scrollbar-width: none;
   animation: ${fadeIn} 0.5s ease-in-out;
-  &::-webkit-scrollbar {
-    display: none;
-  }
   @media screen and (max-width: 500px) {
     top: 20%;
     transform: translate(0%, 0%);
@@ -80,8 +82,8 @@ const ModalMainContain = styled.div`
 `;
 
 const ModalSubContain = styled.div`
-  box-sizing: border-box;
   display: flex;
+  box-sizing: border-box;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -101,18 +103,18 @@ const ModalSubContain = styled.div`
 `;
 
 const ModalTitle = styled.p`
+  display: flex;
   width: 300px;
   font-weight: 600;
   line-height: 24px;
-  display: flex;
   justify-content: center;
   color: ${({ theme }) => theme.colors.gray100};
   white-space: pre-wrap;
 `;
 
 const CloseBtn = styled.button`
-  position: absolute;
   display: flex;
+  position: absolute;
   right: 0px;
   top: 0px;
   align-items: center;

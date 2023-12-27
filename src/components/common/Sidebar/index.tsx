@@ -56,24 +56,22 @@ const Sidebar = ({
 
   return (
     <SidebarContain displayProps={isOpen ? 'flex' : 'none'}>
-      <SidebarItemsContain>
-        <SidebarItemsUl>
-          {SIDE_MENU_ITEMS.map((items: SideMenuItemsFace) => (
-            <SidebarItemsLi key={items.key} delay={items.menuTextDelay}>
-              <SidebarItemsBtn onClick={() => handlePageMove(items.refType)}>
-                <SidebarItemsText>{items.menuText}</SidebarItemsText>
-              </SidebarItemsBtn>
-            </SidebarItemsLi>
-          ))}
-        </SidebarItemsUl>
-      </SidebarItemsContain>
-      <CloseBtn
-        onClick={() => {
-          setIsOpen(false);
-        }}
-      >
-        <Close color={white} />
-      </CloseBtn>
+      <SidebarItemsUl>
+        <CloseBtn
+          onClick={() => {
+            setIsOpen(false);
+          }}
+        >
+          <Close color={white} />
+        </CloseBtn>
+        {SIDE_MENU_ITEMS.map((items: SideMenuItemsFace) => (
+          <SidebarItemsLi key={items.key} delay={items.menuTextDelay}>
+            <SidebarItemsBtn onClick={() => handlePageMove(items.refType)}>
+              <SidebarItemsText>{items.menuText}</SidebarItemsText>
+            </SidebarItemsBtn>
+          </SidebarItemsLi>
+        ))}
+      </SidebarItemsUl>
     </SidebarContain>
   );
 };
@@ -92,37 +90,25 @@ const fadeIn = keyframes`
 `;
 
 const SidebarContain = styled.div<{ displayProps: string }>`
+  display: flex;
+  position: relative;
   width: 500px;
   height: 2000px;
-  position: relative;
-  display: flex;
   display: ${({ displayProps }) => displayProps};
   align-items: center;
   background-color: ${({ theme }) => theme.colors.black};
-  animation: ${fadeIn} 1.5s ease-in-out;
+  animation: ${fadeIn} 1s ease-in-out;
   z-index: 11;
   @media screen and (max-width: 500px) {
     width: 300px;
   }
 `;
 
-const SidebarItemsContain = styled.div`
-  width: 450px;
-  height: 100%;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  @media screen and (max-width: 500px) {
-    width: 170px;
-  }
-`;
-
 const SidebarItemsUl = styled.ul`
+  display: flex;
+  position: relative;
   width: 450px;
   height: 400px;
-  position: relative;
-  display: flex;
   flex-direction: column;
   gap: 10px;
   margin-top: 400px;
@@ -133,13 +119,13 @@ const SidebarItemsUl = styled.ul`
 `;
 
 const SidebarItemsLi = styled.li<{ delay: number }>`
+  display: flex;
+  position: relative;
   width: 200px;
   height: 80px;
-  position: relative;
-  display: flex;
   align-items: center;
   opacity: 0;
-  animation: ${fadeIn} 1.5s ease-in-out;
+  animation: ${fadeIn} 1.2s ease-in-out;
   animation-delay: ${({ delay }) => delay}s;
   animation-fill-mode: forwards;
   @media screen and (max-width: 500px) {
@@ -147,17 +133,31 @@ const SidebarItemsLi = styled.li<{ delay: number }>`
   }
 `;
 
-const SidebarItemsBtn = styled.button`
-  width: 200px;
-  height: 80px;
-  position: relative;
+const SharedButtonStyles = `
   display: flex;
-  background-color: ${({ theme }) => theme.colors.black};
+  position: relative;
+  height: 80px;
   border: 0;
-  align-items: center;
   cursor: pointer;
+`;
+
+const SidebarItemsBtn = styled.button`
+  ${SharedButtonStyles}
+  width: 200px;
+  background-color: ${({ theme }) => theme.colors.black};
   @media screen and (max-width: 500px) {
     width: 130px;
+  }
+`;
+
+const CloseBtn = styled.button`
+  ${SharedButtonStyles}
+  width: 50px;
+  height: 50px;
+  background-color: ${({ theme }) => theme.colors.black};
+  @media screen and (max-width: 500px) {
+    width: 40px;
+    height: 40px;
   }
 `;
 
@@ -165,26 +165,13 @@ const SidebarItemsText = styled.p`
   font-size: 36px;
   font-weight: bold;
   color: ${({ theme }) => theme.colors.white};
+  line-height: 80px;
+  outline: none;
   &:hover {
     transform: translate(0, -10%);
     color: ${({ theme }) => theme.colors.orange};
   }
   @media screen and (max-width: 500px) {
     font-size: 20px;
-  }
-`;
-
-const CloseBtn = styled.button`
-  width: 50px;
-  height: 50px;
-  margin-right: 60px;
-  position: relative;
-  display: flex;
-  background-color: ${({ theme }) => theme.colors.black};
-  border: 0;
-  cursor: pointer;
-  @media screen and (max-width: 500px) {
-    width: 40px;
-    height: 40px;
   }
 `;

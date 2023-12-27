@@ -127,20 +127,21 @@ const ProjectGridContainPC = ({
 export default ProjectGridContainPC;
 
 const GridContain = styled.div`
-  position: relative;
   display: grid;
+  position: relative;
   grid-template-columns: repeat(2, 1fr);
   gap: 10px;
   justify-items: center;
   align-items: center;
+  margin-top: 50px;
   @media screen and (max-width: 1000px) {
     display: none;
   }
 `;
 
 const GridItems = styled.div`
-  position: relative;
   display: flex;
+  position: relative;
   width: 100%;
   height: 650px;
   gap: 20px;
@@ -149,8 +150,8 @@ const GridItems = styled.div`
 `;
 
 const GridSubItem = styled.div<{ isBottomBorder: boolean }>`
-  position: relative;
   display: flex;
+  position: relative;
   width: 100%;
   height: 315px;
   padding: 20px;
@@ -160,15 +161,15 @@ const GridSubItem = styled.div<{ isBottomBorder: boolean }>`
 `;
 
 const ImgBox = styled.img`
-  position: relative;
   display: flex;
+  position: relative;
   width: 100%;
   height: 450px;
 `;
 
 const ImgPageNationContain = styled.div`
-  position: relative;
   display: flex;
+  position: relative;
   width: 100%;
   height: 50px;
   flex-direction: row;
@@ -179,12 +180,13 @@ const ImgPageNationContain = styled.div`
 `;
 
 const ImgPageNationBtn = styled.button`
-  position: relative;
   display: flex;
+  position: relative;
   width: 40px;
   height: 40px;
   border: 0;
   background-color: transparent;
+  outline: none;
   cursor: pointer;
 `;
 
@@ -201,8 +203,8 @@ const ProjectText = styled.p`
 `;
 
 const ToGoGitProjectBtn = styled.button`
-  position: absolute;
   display: flex;
+  position: absolute;
   width: 120px;
   height: 50px;
   border: 0;
@@ -211,6 +213,7 @@ const ToGoGitProjectBtn = styled.button`
   bottom: 20px;
   justify-content: center;
   align-items: center;
+  outline: none;
   cursor: pointer;
   :hover {
     background-color: ${({ theme }) => theme.colors.orange50};
@@ -224,8 +227,8 @@ const ToGoGitBtnText = styled.span`
 `;
 
 const SubItemListTextBox = styled.div`
-  position: relative;
   display: flex;
+  position: relative;
   flex-direction: row;
 `;
 

@@ -37,10 +37,10 @@ const SkillsPage = ({ skillsRef }: SKillsPageRefPropsType) => (
 export default SkillsPage;
 
 const SkillsPageContain = styled.div`
+  display: flex;
+  position: relative;
   width: 1000px;
   height: 880px;
-  position: relative;
-  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -64,10 +64,10 @@ const SkillsPageTitle = styled.p`
 `;
 
 const SkillsPageSubTitleContain = styled.div`
+  display: grid;
+  position: relative;
   width: 100%;
   height: 50px;
-  position: relative;
-  display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   @media screen and (max-width: 500px) {
     justify-items: center;
@@ -86,10 +86,10 @@ const SkillsPageSubTitle = styled.span`
 `;
 
 const SkillsGridContain = styled.div`
+  display: grid;
   width: 100%;
   height: 600px;
   transition: 500ms;
-  display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 3px;
   background: ${({ theme }) => theme.colors.white};
@@ -122,8 +122,8 @@ const SkillsGridContain = styled.div`
 `;
 
 const SkillsGridItems = styled.div`
-  position: relative;
   display: flex;
+  position: relative;
   justify-content: center;
   align-items: center;
   overflow: hidden;
@@ -131,9 +131,9 @@ const SkillsGridItems = styled.div`
   background: ${({ theme }) => theme.colors.orange100};
   border-radius: 10px;
   padding: 20px;
+  transition: 300ms ease;
   :hover {
     background: ${({ theme }) => theme.colors.orange50};
-    transition: 300ms;
   }
 `;
 

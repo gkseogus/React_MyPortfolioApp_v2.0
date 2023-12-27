@@ -129,10 +129,10 @@ const Roller = keyframes`
 `;
 
 const AboutPageContain = styled.div`
+  display: flex;
+  position: relative;
   width: 1000px;
   height: 880px;
-  position: relative;
-  display: flex;
   flex-direction: column;
   align-items: center;
   justify-items: center;
@@ -143,8 +143,8 @@ const AboutPageContain = styled.div`
 `;
 
 const GridContain = styled.div`
-  position: relative;
   display: grid;
+  position: relative;
   text-align: center;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(1, 1fr);
@@ -158,22 +158,22 @@ const GridContain = styled.div`
 `;
 
 const GridItems = styled.div`
+  display: flex;
+  position: relative;
   width: 495px;
   height: 600px;
-  position: relative;
-  display: flex;
   justify-items: center;
   align-items: center;
 `;
 
 const AboutPageTitleRoller = styled.div`
+  display: inline;
+  position: relative;
   width: 100px;
   height: 4.125rem;
   padding-left: 20px;
   line-height: 4rem;
-  position: relative;
   overflow: hidden;
-  display: inline;
   justify-content: center;
   align-items: center;
 `;
@@ -188,10 +188,10 @@ const AboutPageTitleRollerText = styled.span`
 `;
 
 const AboutPageTitle = styled.div<{ marginTopProps: string }>`
+  display: flex;
+  position: absolute;
   width: 100%;
   height: 150px;
-  position: absolute;
-  display: flex;
   justify-content: center;
   align-items: center;
   top: 100px;
@@ -205,23 +205,23 @@ const AboutPageTitle = styled.div<{ marginTopProps: string }>`
 `;
 
 const InfoContain = styled.div`
+  display: flex;
+  position: absolute;
   width: 100%;
   height: 50px;
-  position: absolute;
-  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 10px;
   margin-top: 40px;
   @media screen and (max-width: 500px) {
-    margin-top: 70px;
+    margin-top: 100px;
   }
 `;
 
 const AboutPageEmailBtn = styled.button`
-  height: 20px;
   display: flex;
+  height: 20px;
   background-color: ${({ theme }) => theme.colors.white};
   border: 0;
   cursor: pointer;
@@ -238,10 +238,10 @@ const AboutPageInfoText = styled.span<{ isHover: boolean }>`
 `;
 
 const SocialMenu = styled.div`
+  display: flex;
+  position: relative;
   width: 100%;
   height: 60px;
-  position: relative;
-  display: flex;
   flex-direction: column;
   justify-items: center;
   align-items: center;
@@ -293,10 +293,10 @@ const BulbImg = styled.img`
 const MoContain = styled.div`
   display: none;
   @media screen and (max-width: 500px) {
+    display: flex;
+    position: relative;
     width: 100vw;
     height: 400px;
-    position: relative;
-    display: flex;
     flex-direction: column;
     align-content: center;
     justify-content: center;

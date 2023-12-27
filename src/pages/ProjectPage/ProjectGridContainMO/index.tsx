@@ -114,6 +114,7 @@ const GridContain = styled.div`
   gap: 10px;
   justify-items: center;
   align-items: center;
+  margin-top: 20px;
   @media screen and (max-width: 1000px) {
     display: grid;
   }
@@ -123,13 +124,11 @@ const GridItems = styled.div`
   position: relative;
   display: flex;
   width: 100%;
-  height: 350px;
   gap: 20px;
   padding: 20px;
   flex-direction: column;
   @media screen and (max-width: 500px) {
     width: 60%;
-    height: 330px;
   }
 `;
 
@@ -137,7 +136,6 @@ const GridSubItem = styled.div<{ isBottomBorder: boolean }>`
   position: relative;
   display: flex;
   width: 100%;
-  height: 315px;
   padding: 20px;
   flex-direction: column;
   gap: 10px;
@@ -176,6 +174,7 @@ const ImgPageNationBtn = styled.button`
   height: 40px;
   border: 0;
   background-color: transparent;
+  outline: none;
   cursor: pointer;
 `;
 
@@ -183,6 +182,9 @@ const ImgPageNationText = styled.span`
   width: 100px;
   font-size: 16px;
   font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   @media screen and (max-width: 500px) {
     width: 250px;
   }
