@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import styled from '@emotion/styled';
 import { useTheme } from '@emotion/react';
 import Hamburger from 'components/icon/Hamburger';
@@ -16,6 +16,7 @@ const Navbar = ({ aboutRef, skillsRef, careerRef, projectRef }: PageRefProps) =>
     colors: { white, orange },
   } = useTheme();
   const [isScroll, setIsScroll] = useState<boolean>(false);
+  const [scrollProgressWidth, setScrollProgressWidth] = useState<number>(0);
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   /**
@@ -36,16 +37,41 @@ const Navbar = ({ aboutRef, skillsRef, careerRef, projectRef }: PageRefProps) =>
     }
   };
 
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
+  /**
+   * 스크롤 진행도 함수
+   */
+  const handleScrollProgress = useCallback((): void => {
+    const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+    const windowHeight: number = scrollHeight - clientHeight;
+    const currentPercent: number = scrollTop / windowHeight;
+
+    if (scrollTop === 0) {
+      setScrollProgressWidth(0);
+      return;
+    }
+
+    setScrollProgressWidth(currentPercent * 100);
   }, []);
+
+  useEffect(() => {
+    window.addEventListener('scroll', () => {
+      handleScroll();
+      handleScrollProgress();
+    });
+    return () => {
+      window.addEventListener('scroll', () => {
+        handleScroll();
+        handleScrollProgress();
+      });
+    };
+  }, [handleScrollProgress]);
 
   return (
     <NavbarContain isScroll={isScroll}>
       <NavbarTitle isScroll={isScroll}>HDH</NavbarTitle>
+      <ScrollProgressBar>
+        <ScrollProgress widthProps={scrollProgressWidth} />
+      </ScrollProgressBar>
       <HamburgerBtn isScroll={isScroll} onClick={toggleSide} displayProps={isOpen ? 'none' : 'normal'}>
         <Hamburger color={isScroll ? white : orange} />
       </HamburgerBtn>
@@ -81,14 +107,36 @@ const NavbarContain = styled.div<{ isScroll: boolean }>`
 `;
 
 const NavbarTitle = styled.title<{ isScroll: boolean }>`
+  position: relative;
+  display: flex;
   width: 50px;
   height: 50px;
-  display: flex;
   margin-left: 60px;
   font-size: 32px;
   font-weight: bold;
   transition: 1s;
   color: ${({ isScroll, theme }) => (isScroll ? theme.colors.white : theme.colors.orange)};
+`;
+
+const ScrollProgressBar = styled.div`
+  position: absolute;
+  display: flex;
+  width: 50%;
+  height: 30px;
+  background-color: ${({ theme }) => theme.colors.white};
+  border-radius: 12px;
+  overflow: hidden;
+  left: 50%;
+  transform: translateX(-50%);
+  @media screen and (max-width: 1000px) {
+    display: none;
+  }
+`;
+
+const ScrollProgress = styled.div<{ widthProps: number }>`
+  width: ${({ widthProps }) => widthProps}%;
+  height: 30px;
+  background-color: ${({ theme }) => theme.colors.orange100};
 `;
 
 const HamburgerBtn = styled.button<{ isScroll: boolean; displayProps: string }>`
@@ -101,6 +149,9 @@ const HamburgerBtn = styled.button<{ isScroll: boolean; displayProps: string }>`
   border: 0;
   cursor: pointer;
   @media screen and (max-width: 500px) {
+    margin-right: 60px;
+  }
+  @media screen and (max-width: 350px) {
     margin-right: 100px;
   }
 `;
