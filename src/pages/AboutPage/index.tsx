@@ -72,7 +72,7 @@ const AboutPage = ({ aboutRef }: AboutPageRefProps) => {
           </SocialMenu>
         </GridItems>
         <GridItems>
-          <BulbImg src={`${process.env.PUBLIC_URL}/images/AboutPageImgs/bulb.webp`} alt="bulbImg" />
+          <BulbImg src={`${process.env.PUBLIC_URL}/images/AboutPageImgs/bulb.gif`} alt="bulbImg" />
         </GridItems>
       </GridContain>
       <MoContain>
