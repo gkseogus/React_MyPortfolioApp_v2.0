@@ -8,6 +8,13 @@
     <meta name="description" content="Web site created using create-react-app" />
     <!-- <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" /> -->
     <!-- <link rel="manifest" href="%PUBLIC_URL%/manifest.json" /> -->
+    <link
+      rel="preload"
+      fetchpriority="high"
+      as="image"
+      href="%PUBLIC_URL%/images/AboutPageImgs/bulb.gif"
+      type="image/gif"
+    />
 
     <!-- kakao url option -->
     <meta property="og:url" content="https://www.hdh-portfolio.com/" />
@@ -17,24 +24,11 @@
     <meta property="og:description" content="개발자 한대현의 포트폴리오 사이트 입니다." />
 
     <!-- google optimize -->
-    <script async src="https://www.googleoptimize.com/optimize.js?id=OPT-5KS4LF9"></script>
-    <link rel="preconnect" href="https://www.google-analytics.com" crossorigin />
-
-    <!-- Google tag (gtag.js) -->
-    <script async nonce="random123" src="https://www.googletagmanager.com/gtag/js?id=G-YMEQKDPG6J"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag('js', new Date());
-
-      gtag('config', 'G-YMEQKDPG6J');
-    </script>
-    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+    <script defer async src="https://www.googleoptimize.com/optimize.js?id=OPT-5KS4LF9"></script>
+    <link rel="preconnect" crossorigin href="https://www.google-analytics.com" />
 
     <!-- Naver Analytics -->
-    <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+    <script defer async type="text/javascript" src="https://wcs.naver.com/wcslog.js"></script>
     <script type="text/javascript">
       if (!wcs_add) var wcs_add = {};
       wcs_add['wa'] = '154e2a69d72a14';
@@ -42,7 +36,7 @@
         wcs_do();
       }
     </script>
-    <link rel="preconnect" href="https://wcs.naver.com" crossorigin />
+    <link rel="preconnect" crossorigin href="https://wcs.naver.com" />
 
     <title>HDH's Portfolio</title>
   </head>
