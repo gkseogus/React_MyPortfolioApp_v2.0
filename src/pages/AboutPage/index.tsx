@@ -53,8 +53,10 @@ const AboutPage = ({ aboutRef }: AboutPageRefProps) => {
           <AboutPageTitle marginTopProps="50px">개발자 한대현 입니다.</AboutPageTitle>
           <InfoContain>
             <AboutPageInfoText isHover={false}>Call: 010-2246-6787</AboutPageInfoText>
-            <AboutPageEmailBtn role="button" aria-label="이메일 복사" onClick={handleCopyClipBoard}>
-              <AboutPageInfoText isHover>G-mail: fbzbffldj998@naver.com</AboutPageInfoText>
+            <AboutPageEmailBtn role="button" onClick={handleCopyClipBoard}>
+              <AboutPageInfoText role="button" aria-label="G-mail: fbzbffldj998@naver.com" isHover>
+                G-mail: fbzbffldj998@naver.com
+              </AboutPageInfoText>
             </AboutPageEmailBtn>
           </InfoContain>
           <SocialMenu>
