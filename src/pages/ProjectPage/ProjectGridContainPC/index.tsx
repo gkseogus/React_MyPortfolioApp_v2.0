@@ -241,11 +241,17 @@ const SubItemListTitle = styled.span`
   font-weight: 900;
   font-size: 16px;
   color: ${({ theme }) => theme.colors.orange};
+  @media screen and (max-width: 1200px) {
+    width: 90px;
+  }
 `;
 
 const SubItemListText = styled.span`
-  width: 100%;
+  width: 200px;
   font-size: 14px;
+  @media screen and (max-width: 1200px) {
+    width: 150px;
+  }
 `;
 
 const SubItemUrlText = styled.span`
