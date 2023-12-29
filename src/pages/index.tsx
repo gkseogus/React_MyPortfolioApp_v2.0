@@ -7,6 +7,7 @@ import SkillsPage from 'pages/SkillsPage';
 import CareerPage from 'pages/CareerPage';
 import ProjectPage from 'pages/ProjectPage';
 import ScrollToTopButton from 'components/common/ScrollToTopButton';
+import BottomProgressBar from 'components/common/BottomProgressBar';
 
 const MainPage = () => {
   const pageRefs = {
@@ -31,6 +32,7 @@ const MainPage = () => {
         <ProjectPage projectRef={pageRefs.projectRef} />
       </MainPageContain>
       <ScrollToTopButton />
+      <BottomProgressBar />
       <Footer />
     </>
   );
