@@ -18,7 +18,7 @@ export default BottomProgressBar;
 
 const BottomProgressContain = styled.div<{ isExposureProps: number }>`
   display: none;
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 1000px) {
     display: ${({ isExposureProps }) => (isExposureProps < 98 ? 'flex' : 'none')};
     position: fixed;
     width: 100%;
