@@ -1,8 +1,10 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import { useTheme } from '@emotion/react';
 import Hamburger from 'components/icon/Hamburger';
 import Sidebar from 'components/common/Sidebar';
+import useScrollDown from 'hook/useScrollDown';
+import useScrollProgress from 'hook/useScrollProgress';
 
 interface PageRefProps {
   aboutRef: React.RefObject<HTMLDivElement>;
@@ -15,9 +17,9 @@ const Navbar = ({ aboutRef, skillsRef, careerRef, projectRef }: PageRefProps) =>
   const {
     colors: { white, orange },
   } = useTheme();
-  const [isScroll, setIsScroll] = useState<boolean>(false);
-  const [scrollProgressWidth, setScrollProgressWidth] = useState<number>(0);
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const isScroll = useScrollDown();
+  const scrollProgressWidth = useScrollProgress();
 
   /**
    * 햄버거 메뉴 클릭 이벤트 함수
@@ -26,54 +28,19 @@ const Navbar = ({ aboutRef, skillsRef, careerRef, projectRef }: PageRefProps) =>
     setIsOpen(true);
   };
 
-  /**
-   * 스크롤 다운 이벤트 함수
-   */
-  const handleScroll = () => {
-    if (window.scrollY >= 50) {
-      setIsScroll(true);
-    } else {
-      setIsScroll(false);
-    }
-  };
-
-  /**
-   * 스크롤 진행도 함수
-   */
-  const handleScrollProgress = useCallback((): void => {
-    const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
-    const windowHeight: number = scrollHeight - clientHeight;
-    const currentPercent: number = scrollTop / windowHeight;
-
-    if (scrollTop === 0) {
-      setScrollProgressWidth(0);
-      return;
-    }
-
-    setScrollProgressWidth(currentPercent * 100);
-  }, []);
-
-  useEffect(() => {
-    window.addEventListener('scroll', () => {
-      handleScroll();
-      handleScrollProgress();
-    });
-
-    return () => {
-      window.removeEventListener('scroll', () => {
-        handleScroll();
-        handleScrollProgress();
-      });
-    };
-  }, [handleScrollProgress]);
-
   return (
     <NavbarContain isScroll={isScroll}>
       <NavbarTitle isScroll={isScroll}>HDH</NavbarTitle>
       <ScrollProgressBar>
         <ScrollProgress widthProps={scrollProgressWidth} />
       </ScrollProgressBar>
-      <HamburgerBtn role="button" aria-label="햄버거 메뉴 열기" isScroll={isScroll} onClick={toggleSide} displayProps={isOpen ? 'none' : 'normal'}>
+      <HamburgerBtn
+        role="button"
+        aria-label="햄버거 메뉴 열기"
+        isScroll={isScroll}
+        onClick={toggleSide}
+        displayProps={isOpen ? 'none' : 'normal'}
+      >
         <Hamburger color={isScroll ? white : orange} />
       </HamburgerBtn>
       <Sidebar
