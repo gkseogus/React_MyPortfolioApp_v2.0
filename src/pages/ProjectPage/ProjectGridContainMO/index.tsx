@@ -43,11 +43,11 @@ const ProjectGridContainMO = ({
   };
 
   return (
-    <GridContain>
+    <GridContainer>
       <GridItems>
         {itemImg.map((imgItem, idx) => idx === pageCnt && <ImgBox key={imgItem} src={imgItem} alt={itemAlt} />)}
-        <ImgPageNationContain>
-          <ImgPageNationBtn
+        <ImgPageNationContainer>
+          <ImgPageNationButton
             role="button"
             aria-label="좌측 페이지네이션"
             disabled={pageCnt === 0}
@@ -56,9 +56,9 @@ const ProjectGridContainMO = ({
             }}
           >
             <AiOutlineLeft size={40} color={orange} />
-          </ImgPageNationBtn>
+          </ImgPageNationButton>
           <ImgPageNationText>{`${pageCnt + 1} / ${itemImg.length}`}</ImgPageNationText>
-          <ImgPageNationBtn
+          <ImgPageNationButton
             role="button"
             aria-label="우측 페이지네이션"
             disabled={pageCnt === itemImg.length - 1}
@@ -67,16 +67,16 @@ const ProjectGridContainMO = ({
             }}
           >
             <AiOutlineRight size={40} color={orange} />
-          </ImgPageNationBtn>
-        </ImgPageNationContain>
+          </ImgPageNationButton>
+        </ImgPageNationContainer>
       </GridItems>
       {itemFunction !== '' && itemFunction !== '' && (
         <GridItems>
           {itemGithubLink !== '' && (
             <GridSubItem isBottomBorder>
-              <ToGoGitProjectBtn onClick={handleToGoGitLink}>
+              <ToGoGitProjectButton onClick={handleToGoGitLink}>
                 <ToGoGitBtnText>Git Hub</ToGoGitBtnText>
-              </ToGoGitProjectBtn>
+              </ToGoGitProjectButton>
             </GridSubItem>
           )}
           <GridSubItem isBottomBorder={false}>
@@ -105,13 +105,13 @@ const ProjectGridContainMO = ({
           </GridSubItem>
         </GridItems>
       )}
-    </GridContain>
+    </GridContainer>
   );
 };
 
 export default ProjectGridContainMO;
 
-const GridContain = styled.div`
+const GridContainer = styled.section`
   position: relative;
   display: none;
   grid-template-columns: repeat(1, 2fr);
@@ -124,7 +124,7 @@ const GridContain = styled.div`
   }
 `;
 
-const GridItems = styled.div`
+const GridItems = styled.section`
   position: relative;
   display: flex;
   width: 100%;
@@ -136,7 +136,7 @@ const GridItems = styled.div`
   }
 `;
 
-const GridSubItem = styled.div<{ isBottomBorder: boolean }>`
+const GridSubItem = styled.section<{ isBottomBorder: boolean }>`
   position: relative;
   display: flex;
   width: 100%;
@@ -156,7 +156,7 @@ const ImgBox = styled.img`
   }
 `;
 
-const ImgPageNationContain = styled.div`
+const ImgPageNationContainer = styled.section`
   position: relative;
   display: flex;
   width: 100%;
@@ -170,7 +170,7 @@ const ImgPageNationContain = styled.div`
   }
 `;
 
-const ImgPageNationBtn = styled.button`
+const ImgPageNationButton = styled.button`
   position: relative;
   display: flex;
   width: 40px;
@@ -181,7 +181,7 @@ const ImgPageNationBtn = styled.button`
   cursor: pointer;
 `;
 
-const ImgPageNationText = styled.span`
+const ImgPageNationText = styled.p`
   width: 100px;
   font-size: 16px;
   font-weight: 700;
@@ -193,7 +193,7 @@ const ImgPageNationText = styled.span`
   }
 `;
 
-const ToGoGitProjectBtn = styled.button`
+const ToGoGitProjectButton = styled.button`
   position: relative;
   display: flex;
   width: 100%;
@@ -210,13 +210,13 @@ const ToGoGitProjectBtn = styled.button`
   }
 `;
 
-const ToGoGitBtnText = styled.span`
+const ToGoGitBtnText = styled.p`
   font-weight: 900;
   font-size: 16px;
   color: ${({ theme }) => theme.colors.white};
 `;
 
-const SubItemListTextBox = styled.div`
+const SubItemListTextBox = styled.section`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -232,7 +232,7 @@ const SubItemListTitle = styled.span`
   }
 `;
 
-const SubItemListText = styled.span`
+const SubItemListText = styled.p`
   width: 100%;
   font-size: 14px;
   @media screen and (max-width: 500px) {
@@ -240,7 +240,7 @@ const SubItemListText = styled.span`
   }
 `;
 
-const SubItemUrlText = styled.span`
+const SubItemUrlText = styled.p`
   font-size: 14px;
   :hover {
     color: ${({ theme }) => theme.colors.orange50};

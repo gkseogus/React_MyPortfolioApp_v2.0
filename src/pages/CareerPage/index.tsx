@@ -18,9 +18,9 @@ const CareerPage = ({ careerRef }: CareerPageRefProps) => {
   } = useTheme();
 
   return (
-    <CareerPageContain ref={careerRef}>
+    <CareerPageContainer ref={careerRef}>
       <CareerPageTitle>CAREER</CareerPageTitle>
-      <CareerPageTitleLineContain>
+      <CareerPageTitleLineContainer>
         <VerticalTimeline lineColor={black}>
           {CAREER_DATA.map(items => (
             <VerticalTimelineElement
@@ -52,14 +52,14 @@ const CareerPage = ({ careerRef }: CareerPageRefProps) => {
             </VerticalTimelineElement>
           ))}
         </VerticalTimeline>
-      </CareerPageTitleLineContain>
-    </CareerPageContain>
+      </CareerPageTitleLineContainer>
+    </CareerPageContainer>
   );
 };
 
 export default CareerPage;
 
-const CareerPageContain = styled.div`
+const CareerPageContainer = styled.section`
   width: 1000px;
   position: relative;
   display: flex;
@@ -83,7 +83,7 @@ const CareerPageTitle = styled.p`
   }
 `;
 
-const CareerPageTitleLineContain = styled.div`
+const CareerPageTitleLineContainer = styled.section`
   width: 100%;
   height: 100%;
   position: relative;

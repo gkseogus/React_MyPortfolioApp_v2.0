@@ -7,14 +7,14 @@ type SKillsPageRefPropsType = {
 };
 
 const SkillsPage = ({ skillsRef }: SKillsPageRefPropsType) => (
-  <SkillsPageContain ref={skillsRef}>
+  <SkillsPageContainer ref={skillsRef}>
     <SkillsPageTitle>SKILL</SkillsPageTitle>
-    <SkillsPageSubTitleContain>
+    <SkillsPageSubTitleContainer>
       <SkillsPageSubTitle>FRONT</SkillsPageSubTitle>
       <SkillsPageSubTitle>BACK</SkillsPageSubTitle>
       <SkillsPageSubTitle>MANAGE</SkillsPageSubTitle>
-    </SkillsPageSubTitleContain>
-    <SkillsGridContain>
+    </SkillsPageSubTitleContainer>
+    <SkillsGridContainer>
       <SkillsGridItems className="left">
         {SKILLS_LOGO_DATA.slice(0, 10).map(items => (
           <SkillsGirdItemsImg key={items.iconKey} src={items.iconImg} alt={items.iconAlt} />
@@ -30,13 +30,13 @@ const SkillsPage = ({ skillsRef }: SKillsPageRefPropsType) => (
           <SkillsGirdItemsImg key={items.iconKey} src={items.iconImg} alt={items.iconAlt} />
         ))}
       </SkillsGridItems>
-    </SkillsGridContain>
-  </SkillsPageContain>
+    </SkillsGridContainer>
+  </SkillsPageContainer>
 );
 
 export default SkillsPage;
 
-const SkillsPageContain = styled.div`
+const SkillsPageContainer = styled.section`
   display: flex;
   position: relative;
   width: 1000px;
@@ -63,7 +63,7 @@ const SkillsPageTitle = styled.p`
   }
 `;
 
-const SkillsPageSubTitleContain = styled.div`
+const SkillsPageSubTitleContainer = styled.section`
   display: grid;
   position: relative;
   width: 100%;
@@ -85,7 +85,7 @@ const SkillsPageSubTitle = styled.span`
   }
 `;
 
-const SkillsGridContain = styled.div`
+const SkillsGridContainer = styled.section`
   display: grid;
   width: 100%;
   height: 600px;
@@ -121,7 +121,7 @@ const SkillsGridContain = styled.div`
   }
 `;
 
-const SkillsGridItems = styled.div`
+const SkillsGridItems = styled.section`
   display: flex;
   position: relative;
   justify-content: center;

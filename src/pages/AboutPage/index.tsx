@@ -13,28 +13,37 @@ const AboutPage = ({ aboutRef }: AboutPageRefProps) => {
    * 이메일 클립보드 복사
    */
   const handleCopyClipBoard = () => {
+    const copyText = 'fbzbffldj998@naver.com';
     try {
-      navigator.clipboard.writeText('fbzbffldj998@naver.com');
-      Swal.fire({
-        width: '400px',
-        icon: 'success',
-        title: '클립보드에 복사되었습니다.',
-        showConfirmButton: false,
-        timer: 1500,
-      });
+      navigator.clipboard.writeText(copyText);
+      showSuccessAlert('클립보드에 복사되었습니다.');
     } catch (error) {
-      Swal.fire({
-        icon: 'error',
-        title: '클립보드 복사에 실패하였습니다.',
-        showConfirmButton: false,
-        timer: 1500,
-      });
+      showErrorAlert('클립보드 복사에 실패하였습니다.');
     }
   };
 
+  const showSuccessAlert = (message: string) => {
+    Swal.fire({
+      width: '400px',
+      icon: 'success',
+      title: message,
+      showConfirmButton: false,
+      timer: 1500,
+    });
+  };
+
+  const showErrorAlert = (message: string) => {
+    Swal.fire({
+      icon: 'error',
+      title: message,
+      showConfirmButton: false,
+      timer: 1500,
+    });
+  };
+
   return (
-    <AboutPageContain ref={aboutRef}>
-      <GridContain>
+    <AboutPageContainer ref={aboutRef}>
+      <GridContainer>
         <GridItems>
           <AboutPageTitle marginTopProps="0px">
             <AboutPageTitleRoller>
@@ -51,31 +60,31 @@ const AboutPage = ({ aboutRef }: AboutPageRefProps) => {
             을 좋아하는
           </AboutPageTitle>
           <AboutPageTitle marginTopProps="50px">개발자 한대현 입니다.</AboutPageTitle>
-          <InfoContain>
+          <InfoContainer>
             <AboutPageInfoText isHover={false}>Call: 010-2246-6787</AboutPageInfoText>
-            <AboutPageEmailBtn role="button" onClick={handleCopyClipBoard}>
+            <AboutPageEmailButton role="button" onClick={handleCopyClipBoard}>
               <AboutPageInfoText role="button" aria-label="G-mail: fbzbffldj998@naver.com" isHover>
                 G-mail: fbzbffldj998@naver.com
               </AboutPageInfoText>
-            </AboutPageEmailBtn>
-          </InfoContain>
+            </AboutPageEmailButton>
+          </InfoContainer>
           <SocialMenu>
-            <SocialMenuList>
+            <SocialMenuListUl>
               {ABOUT_LOGO_DATA.map(items => (
-                <SocialMenuListItem key={items.iconKey}>
+                <SocialMenuListLi key={items.iconKey}>
                   <SocialMenuLink href={items.iconLink} target="_blank" rel="noopener noreferrer">
                     <SocialMenuIcon src={items.iconImg} alt={items.iconAlt} />
                   </SocialMenuLink>
-                </SocialMenuListItem>
+                </SocialMenuListLi>
               ))}
-            </SocialMenuList>
+            </SocialMenuListUl>
           </SocialMenu>
         </GridItems>
         <GridItems>
           <BulbImg src={`${process.env.PUBLIC_URL}/images/AboutPageImgs/bulb.gif`} alt="bulbImg" />
         </GridItems>
-      </GridContain>
-      <MoContain>
+      </GridContainer>
+      <MoContainer>
         <AboutPageTitle marginTopProps="0px">
           <AboutPageTitleRoller>
             <AboutPageTitleRollerText>
@@ -91,25 +100,25 @@ const AboutPage = ({ aboutRef }: AboutPageRefProps) => {
           을 좋아하는
         </AboutPageTitle>
         <AboutPageTitle marginTopProps="50px">개발자 한대현 입니다.</AboutPageTitle>
-        <InfoContain>
+        <InfoContainer>
           <AboutPageInfoText isHover={false}>Call: 010-2246-6787</AboutPageInfoText>
-          <AboutPageEmailBtn onClick={handleCopyClipBoard}>
+          <AboutPageEmailButton onClick={handleCopyClipBoard}>
             <AboutPageInfoText isHover>G-mail: fbzbffldj998@naver.com</AboutPageInfoText>
-          </AboutPageEmailBtn>
-        </InfoContain>
+          </AboutPageEmailButton>
+        </InfoContainer>
         <SocialMenu>
-          <SocialMenuList>
+          <SocialMenuListUl>
             {ABOUT_LOGO_DATA.map(items => (
-              <SocialMenuListItem key={items.iconKey}>
+              <SocialMenuListLi key={items.iconKey}>
                 <SocialMenuLink href={items.iconLink} target="_blank" rel="noopener noreferrer">
                   <SocialMenuIcon src={items.iconImg} alt={items.iconAlt} />
                 </SocialMenuLink>
-              </SocialMenuListItem>
+              </SocialMenuListLi>
             ))}
-          </SocialMenuList>
+          </SocialMenuListUl>
         </SocialMenu>
-      </MoContain>
-    </AboutPageContain>
+      </MoContainer>
+    </AboutPageContainer>
   );
 };
 
@@ -130,7 +139,7 @@ const Roller = keyframes`
   }
 `;
 
-const AboutPageContain = styled.div`
+const AboutPageContainer = styled.section`
   display: flex;
   position: relative;
   width: 1000px;
@@ -144,7 +153,7 @@ const AboutPageContain = styled.div`
   }
 `;
 
-const GridContain = styled.div`
+const GridContainer = styled.section`
   display: grid;
   position: relative;
   text-align: center;
@@ -159,7 +168,7 @@ const GridContain = styled.div`
   }
 `;
 
-const GridItems = styled.div`
+const GridItems = styled.section`
   display: flex;
   position: relative;
   width: 495px;
@@ -168,7 +177,7 @@ const GridItems = styled.div`
   align-items: center;
 `;
 
-const AboutPageTitleRoller = styled.div`
+const AboutPageTitleRoller = styled.section`
   display: inline;
   position: relative;
   width: 100px;
@@ -180,7 +189,8 @@ const AboutPageTitleRoller = styled.div`
   align-items: center;
 `;
 
-const AboutPageTitleRollerText = styled.span`
+const AboutPageTitleRollerText = styled.p`
+  display: inline;
   position: relative;
   font-size: 36px;
   font-weight: 700;
@@ -189,7 +199,7 @@ const AboutPageTitleRollerText = styled.span`
   animation: ${Roller} 5s infinite;
 `;
 
-const AboutPageTitle = styled.div<{ marginTopProps: string }>`
+const AboutPageTitle = styled.section<{ marginTopProps: string }>`
   display: flex;
   position: absolute;
   width: 100%;
@@ -206,7 +216,7 @@ const AboutPageTitle = styled.div<{ marginTopProps: string }>`
   }
 `;
 
-const InfoContain = styled.div`
+const InfoContainer = styled.section`
   display: flex;
   position: absolute;
   width: 100%;
@@ -215,13 +225,12 @@ const InfoContain = styled.div`
   justify-content: center;
   align-items: center;
   gap: 10px;
-  margin-top: 40px;
   @media screen and (max-width: 500px) {
     margin-top: 100px;
   }
 `;
 
-const AboutPageEmailBtn = styled.button`
+const AboutPageEmailButton = styled.button`
   display: flex;
   height: 20px;
   background-color: ${({ theme }) => theme.colors.white};
@@ -233,13 +242,14 @@ const AboutPageInfoText = styled.span<{ isHover: boolean }>`
   height: 20px;
   font-size: 16px;
   font-weight: bold;
+  display: inline;
   color: ${({ theme }) => theme.colors.gray300};
   :hover {
     color: ${({ isHover, theme }) => isHover && theme.colors.orange};
   }
 `;
 
-const SocialMenu = styled.div`
+const SocialMenu = styled.section`
   display: flex;
   position: relative;
   width: 100%;
@@ -253,14 +263,14 @@ const SocialMenu = styled.div`
   }
 `;
 
-const SocialMenuList = styled.ul`
+const SocialMenuListUl = styled.ul`
   display: flex;
   padding: 0;
   margin: 0;
   gap: 40px;
 `;
 
-const SocialMenuListItem = styled.li`
+const SocialMenuListLi = styled.li`
   list-style: none;
   margin: 0 15px;
 `;
@@ -292,7 +302,7 @@ const BulbImg = styled.img`
   height: 512px;
 `;
 
-const MoContain = styled.div`
+const MoContainer = styled.section`
   display: none;
   @media screen and (max-width: 500px) {
     display: flex;

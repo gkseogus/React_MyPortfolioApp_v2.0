@@ -55,9 +55,9 @@ const Sidebar = ({
   };
 
   return (
-    <SidebarContain displayProps={isOpen ? 'flex' : 'none'}>
+    <SidebarContainer displayProps={isOpen ? 'flex' : 'none'}>
       <SidebarItemsUl>
-        <CloseBtn
+        <CloseButton
           role="button"
           aria-label="사이드 바 닫기"
           onClick={() => {
@@ -65,16 +65,16 @@ const Sidebar = ({
           }}
         >
           <Close color={white} />
-        </CloseBtn>
+        </CloseButton>
         {SIDE_MENU_ITEMS.map((items: SideMenuItemsFace) => (
           <SidebarItemsLi key={items.key} delay={items.menuTextDelay}>
-            <SidebarItemsBtn role="button" aria-label="사이드 메뉴" onClick={() => handlePageMove(items.refType)}>
+            <SidebarItemsButton role="button" aria-label="사이드 메뉴" onClick={() => handlePageMove(items.refType)}>
               <SidebarItemsText>{items.menuText}</SidebarItemsText>
-            </SidebarItemsBtn>
+            </SidebarItemsButton>
           </SidebarItemsLi>
         ))}
       </SidebarItemsUl>
-    </SidebarContain>
+    </SidebarContainer>
   );
 };
 
@@ -91,7 +91,7 @@ const fadeIn = keyframes`
   }
 `;
 
-const SidebarContain = styled.div<{ displayProps: string }>`
+const SidebarContainer = styled.section<{ displayProps: string }>`
   display: flex;
   position: relative;
   width: 500px;
@@ -143,7 +143,7 @@ const SharedButtonStyles = `
   cursor: pointer;
 `;
 
-const SidebarItemsBtn = styled.button`
+const SidebarItemsButton = styled.button`
   ${SharedButtonStyles}
   width: 200px;
   background-color: ${({ theme }) => theme.colors.black};
@@ -152,7 +152,7 @@ const SidebarItemsBtn = styled.button`
   }
 `;
 
-const CloseBtn = styled.button`
+const CloseButton = styled.button`
   ${SharedButtonStyles}
   width: 50px;
   height: 50px;

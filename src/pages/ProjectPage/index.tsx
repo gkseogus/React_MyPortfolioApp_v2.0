@@ -9,7 +9,7 @@ interface ProjectPageRefProps {
 }
 
 const ProjectPage = ({ projectRef }: ProjectPageRefProps) => (
-  <ProjectPageContain ref={projectRef}>
+  <ProjectPageContainer ref={projectRef}>
     <ProjectPageTitle>PROJECT</ProjectPageTitle>
     {projectItemsData.map(item => (
       <ProjectBox key={item.itemKey}>
@@ -18,12 +18,12 @@ const ProjectPage = ({ projectRef }: ProjectPageRefProps) => (
         <ProjectGridContainMO {...item} />
       </ProjectBox>
     ))}
-  </ProjectPageContain>
+  </ProjectPageContainer>
 );
 
 export default ProjectPage;
 
-const ProjectPageContain = styled.div`
+const ProjectPageContainer = styled.section`
   width: 100%;
   position: relative;
   display: flex;
@@ -38,7 +38,7 @@ const ProjectPageContain = styled.div`
   }
 `;
 
-const ProjectPageTitle = styled.span`
+const ProjectPageTitle = styled.p`
   position: relative;
   display: flex;
   width: 100%;
@@ -53,7 +53,7 @@ const ProjectPageTitle = styled.span`
   }
 `;
 
-const ProjectBox = styled.div`
+const ProjectBox = styled.section`
   position: relative;
   display: flex;
   width: 60%;

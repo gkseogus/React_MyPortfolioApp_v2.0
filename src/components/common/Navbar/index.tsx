@@ -25,24 +25,24 @@ const Navbar = ({ aboutRef, skillsRef, careerRef, projectRef }: PageRefProps) =>
    * 햄버거 메뉴 클릭 이벤트 함수
    */
   const toggleSide = () => {
-    setIsOpen(true);
+    setIsOpen(!isOpen);
   };
 
   return (
-    <NavbarContain isScroll={isScroll}>
+    <NavbarContainer isScroll={isScroll}>
       <NavbarTitle isScroll={isScroll}>HDH</NavbarTitle>
       <ScrollProgressBar>
         <ScrollProgress widthProps={scrollProgressWidth} />
       </ScrollProgressBar>
-      <HamburgerBtn
+      <HamburgerButton
         role="button"
-        aria-label="햄버거 메뉴 열기"
+        aria-label={isOpen ? '햄버거 메뉴 닫기' : '햄버거 메뉴 열기'}
         isScroll={isScroll}
         onClick={toggleSide}
         displayProps={isOpen ? 'none' : 'normal'}
       >
         <Hamburger color={isScroll ? white : orange} />
-      </HamburgerBtn>
+      </HamburgerButton>
       <Sidebar
         isOpen={isOpen}
         setIsOpen={setIsOpen}
@@ -51,13 +51,13 @@ const Navbar = ({ aboutRef, skillsRef, careerRef, projectRef }: PageRefProps) =>
         careerRef={careerRef}
         projectRef={projectRef}
       />
-    </NavbarContain>
+    </NavbarContainer>
   );
 };
 
 export default Navbar;
 
-const NavbarContain = styled.div<{ isScroll: boolean }>`
+const NavbarContainer = styled.nav<{ isScroll: boolean }>`
   width: 100%;
   height: 80px;
   display: flex;
@@ -86,7 +86,7 @@ const NavbarTitle = styled.title<{ isScroll: boolean }>`
   color: ${({ isScroll, theme }) => (isScroll ? theme.colors.white : theme.colors.orange)};
 `;
 
-const ScrollProgressBar = styled.div`
+const ScrollProgressBar = styled.section`
   display: flex;
   position: absolute;
   width: 50%;
@@ -101,13 +101,13 @@ const ScrollProgressBar = styled.div`
   }
 `;
 
-const ScrollProgress = styled.div<{ widthProps: number }>`
+const ScrollProgress = styled.section<{ widthProps: number }>`
   width: ${({ widthProps }) => widthProps}%;
   height: 30px;
   background-color: ${({ theme }) => theme.colors.orange100};
 `;
 
-const HamburgerBtn = styled.button<{ isScroll: boolean; displayProps: string }>`
+const HamburgerButton = styled.button<{ isScroll: boolean; displayProps: string }>`
   width: 50px;
   height: 50px;
   margin-right: 60px;

@@ -9,7 +9,7 @@ interface MoreModalFace {
 }
 
 const MoreModal = ({ onClose, modalTitleText }: MoreModalFace) => {
-  const modalRef = useRef<HTMLDivElement>(null);
+  const modalRef = useRef<HTMLSelectElement>(null);
 
   /**
    * background 클릭 or EScape 버튼 클릭 시 모달 창 닫히는 함수
@@ -42,14 +42,14 @@ const MoreModal = ({ onClose, modalTitleText }: MoreModalFace) => {
   }, [handleBackGround]);
 
   return (
-    <ModalMainContain ref={modalRef} role="dialog">
-      <ModalSubContain>
-        <CloseBtn role="button" aria-label="모달창 닫기" onClick={onClose}>
+    <ModalMainContainer ref={modalRef} role="dialog">
+      <ModalSubContainer>
+        <CloseButton role="button" aria-label="모달창 닫기" onClick={onClose}>
           <AiOutlineClose size={32} />
-        </CloseBtn>
+        </CloseButton>
         <ModalTitle>{modalTitleText}</ModalTitle>
-      </ModalSubContain>
-    </ModalMainContain>
+      </ModalSubContainer>
+    </ModalMainContainer>
   );
 };
 
@@ -64,7 +64,7 @@ const fadeIn = keyframes`
   }
 `;
 
-const ModalMainContain = styled.div`
+const ModalMainContainer = styled.section`
   display: flex;
   position: absolute;
   top: 50%;
@@ -81,7 +81,7 @@ const ModalMainContain = styled.div`
   }
 `;
 
-const ModalSubContain = styled.div`
+const ModalSubContainer = styled.section`
   display: flex;
   box-sizing: border-box;
   flex-direction: column;
@@ -112,7 +112,7 @@ const ModalTitle = styled.p`
   white-space: pre-wrap;
 `;
 
-const CloseBtn = styled.button`
+const CloseButton = styled.button`
   display: flex;
   position: absolute;
   right: 0px;
