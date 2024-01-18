@@ -25,12 +25,12 @@ const MainPage = () => {
         careerRef={pageRefs.careerRef}
         projectRef={pageRefs.projectRef}
       />
-      <MainPageContain>
+      <MainPageContainer>
         <AboutPage aboutRef={pageRefs.aboutRef} />
         <SkillsPage skillsRef={pageRefs.skillsRef} />
         <CareerPage careerRef={pageRefs.careerRef} />
         <ProjectPage projectRef={pageRefs.projectRef} />
-      </MainPageContain>
+      </MainPageContainer>
       <ScrollToTopButton />
       <BottomProgressBar />
       <Footer />
@@ -40,7 +40,7 @@ const MainPage = () => {
 
 export default MainPage;
 
-const MainPageContain = styled.div`
+const MainPageContainer = styled.section`
   display: flex;
   position: relative;
   margin-top: 80px;
