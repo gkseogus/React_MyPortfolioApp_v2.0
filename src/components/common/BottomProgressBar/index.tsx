@@ -6,20 +6,20 @@ const BottomProgressBar = () => {
   const scrollProgressWidth = useScrollProgress();
 
   return (
-    <BottomProgressContain isExposureProps={scrollProgressWidth}>
-      <ScrollProgressBar>
-        <ScrollProgress widthProps={scrollProgressWidth} />
-      </ScrollProgressBar>
-    </BottomProgressContain>
+    <ProgressContainer isVisible={scrollProgressWidth < 98}>
+      <ProgressBar>
+        <ProgressFill width={scrollProgressWidth} />
+      </ProgressBar>
+    </ProgressContainer>
   );
 };
 
 export default BottomProgressBar;
 
-const BottomProgressContain = styled.div<{ isExposureProps: number }>`
+const ProgressContainer = styled.section<{ isVisible: boolean }>`
   display: none;
   @media screen and (max-width: 1000px) {
-    display: ${({ isExposureProps }) => (isExposureProps < 98 ? 'flex' : 'none')};
+    display: ${({ isVisible }) => (isVisible ? 'flex' : 'none')};
     position: fixed;
     width: 100%;
     height: 10px;
@@ -32,7 +32,7 @@ const BottomProgressContain = styled.div<{ isExposureProps: number }>`
   }
 `;
 
-const ScrollProgressBar = styled.div`
+const ProgressBar = styled.section`
   display: flex;
   position: absolute;
   width: 100%;
@@ -41,8 +41,8 @@ const ScrollProgressBar = styled.div`
   overflow: hidden;
 `;
 
-const ScrollProgress = styled.div<{ widthProps: number }>`
-  width: ${({ widthProps }) => widthProps}%;
+const ProgressFill = styled.section<{ width: number }>`
+  width: ${({ width }) => width}%;
   height: 10px;
   background-color: ${({ theme }) => theme.colors.orange100};
 `;

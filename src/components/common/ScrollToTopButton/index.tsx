@@ -50,7 +50,7 @@ const topSlice = keyframes`
   }
 `;
 
-const ScrollToTop = styled.div`
+const ScrollToTop = styled.section`
   position: fixed;
   width: 70%;
   left: 83%;
