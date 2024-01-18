@@ -12,7 +12,7 @@ const AboutPage = ({ aboutRef }: AboutPageRefProps) => {
   /**
    * 이메일 클립보드 복사
    */
-  const handleCopyClipBoard = () => {
+  const handleCopyClipBoard = (): void => {
     const copyText = 'fbzbffldj998@naver.com';
     try {
       navigator.clipboard.writeText(copyText);
@@ -22,7 +22,7 @@ const AboutPage = ({ aboutRef }: AboutPageRefProps) => {
     }
   };
 
-  const showSuccessAlert = (message: string) => {
+  const showSuccessAlert = (message: string): void => {
     Swal.fire({
       width: '400px',
       icon: 'success',
@@ -32,7 +32,7 @@ const AboutPage = ({ aboutRef }: AboutPageRefProps) => {
     });
   };
 
-  const showErrorAlert = (message: string) => {
+  const showErrorAlert = (message: string): void => {
     Swal.fire({
       icon: 'error',
       title: message,

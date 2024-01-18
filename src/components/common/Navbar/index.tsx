@@ -24,7 +24,7 @@ const Navbar = ({ aboutRef, skillsRef, careerRef, projectRef }: PageRefProps) =>
   /**
    * 햄버거 메뉴 클릭 이벤트 함수
    */
-  const toggleSide = () => {
+  const toggleSide = (): void => {
     setIsOpen(!isOpen);
   };
 

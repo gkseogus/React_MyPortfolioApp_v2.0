@@ -15,7 +15,7 @@ const MoreModal = ({ onClose, modalTitleText }: MoreModalFace) => {
    * background 클릭 or EScape 버튼 클릭 시 모달 창 닫히는 함수
    */
   const handleBackGround = useCallback(
-    (e: MouseEvent | KeyboardEvent) => {
+    (e: MouseEvent | KeyboardEvent): void => {
       const isMouseClick = e.type === 'click';
       const isKeyboardEvent = e.type === 'keydown';
       const pressedKey = (e as KeyboardEvent).key;

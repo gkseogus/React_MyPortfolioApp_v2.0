@@ -7,7 +7,7 @@ const ScrollToTopButton = () => {
   const [visible, setVisible] = useState<boolean>(false);
 
   /** 해당 컴포넌트의 노출 여부 핸들러  */
-  const handleToggleVisible = () => {
+  const handleToggleVisible = (): void => {
     const scrolled = document.documentElement.scrollTop;
     if (scrolled > 300) {
       setVisible(true);
@@ -17,7 +17,7 @@ const ScrollToTopButton = () => {
   };
 
   /** 스크롤 이동 핸들러 */
-  const handleScrollToTop = () => {
+  const handleScrollToTop = (): void => {
     window.scrollTo({
       top: 0,
       behavior: 'smooth',

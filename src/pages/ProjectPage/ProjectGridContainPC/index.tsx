@@ -31,13 +31,13 @@ const ProjectGridContainPC = ({
   const {
     colors: { orange },
   } = useTheme();
-  const [pageCnt, setPageCnt] = useState(0);
+  const [pageCnt, setPageCnt] = useState<number>(0);
 
   /**
    * 페이징 함수
    * @param btnType - 좌,우 화살표 체킹
    */
-  const handleImgPageNation = (btnType: string) => {
+  const handleImgPageNation = (btnType: string): void => {
     if (pageCnt > -1 && btnType === 'left') {
       setPageCnt((prevCount): number => prevCount - 1);
     }
@@ -46,7 +46,7 @@ const ProjectGridContainPC = ({
     }
   };
 
-  const handleToGoGitLink = () => {
+  const handleToGoGitLink = (): void => {
     window.open(itemGithubLink);
   };
 
@@ -59,7 +59,7 @@ const ProjectGridContainPC = ({
             role="button"
             aria-label="좌측 페이지네이션"
             disabled={pageCnt === 0}
-            onClick={() => {
+            onClick={(): void => {
               handleImgPageNation('left');
             }}
           >
@@ -70,7 +70,7 @@ const ProjectGridContainPC = ({
             role="button"
             aria-label="우측 페이지네이션"
             disabled={pageCnt === itemImg.length - 1}
-            onClick={() => {
+            onClick={(): void => {
               handleImgPageNation('right');
             }}
           >
