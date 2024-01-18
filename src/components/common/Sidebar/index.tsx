@@ -34,7 +34,7 @@ const Sidebar = ({
    * div 요소로 이동시킴
    * @param refType - 각 요소의 ref
    */
-  const handlePageMove = (refType: string) => {
+  const handlePageMove = (refType: string): void => {
     switch (refType) {
       case 'about':
         aboutRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -60,7 +60,7 @@ const Sidebar = ({
         <CloseButton
           role="button"
           aria-label="사이드 바 닫기"
-          onClick={() => {
+          onClick={(): void => {
             setIsOpen(false);
           }}
         >
@@ -68,7 +68,11 @@ const Sidebar = ({
         </CloseButton>
         {SIDE_MENU_ITEMS.map((items: SideMenuItemsFace) => (
           <SidebarItemsLi key={items.key} delay={items.menuTextDelay}>
-            <SidebarItemsButton role="button" aria-label="사이드 메뉴" onClick={() => handlePageMove(items.refType)}>
+            <SidebarItemsButton
+              role="button"
+              aria-label="사이드 메뉴"
+              onClick={(): void => handlePageMove(items.refType)}
+            >
               <SidebarItemsText>{items.menuText}</SidebarItemsText>
             </SidebarItemsButton>
           </SidebarItemsLi>

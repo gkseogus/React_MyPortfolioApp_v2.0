@@ -6,7 +6,7 @@ const useScrollDown = (): boolean => {
   /**
    * 스크롤 다운 이벤트 함수
    */
-  const handleScrollDown = () => {
+  const handleScrollDown = (): void => {
     if (window.scrollY >= 50) {
       setIsScroll(true);
     } else {
