@@ -9,6 +9,26 @@ import ProjectPage from 'pages/ProjectPage';
 import ScrollToTopButton from 'components/common/ScrollToTopButton';
 import BottomProgressBar from 'components/common/BottomProgressBar';
 
+// eslint-disable-next-line no-console
+console.log(
+  ` 
+ %c██╗  ██╗██████╗ ██╗  ██╗    ██████╗ ██╗      ██████╗  ██████╗ 
+ %c██║  ██║██╔══██╗██║  ██║    ██╔══██╗██║     ██╔═══██╗██╔════╝ 
+ %c███████║██║  ██║███████║    ██████╔╝██║     ██║   ██║██║  ███╗
+ %c██╔══██║██║  ██║██╔══██║    ██╔══██╗██║     ██║   ██║██║   ██║
+ %c██║  ██║██████╔╝██║  ██║    ██████╔╝███████╗╚██████╔╝╚██████╔╝
+ %c╚═╝  ╚═╝╚═════╝ ╚═╝  ╚═╝    ╚═════╝ ╚══════╝ ╚═════╝  ╚═════╝ 
+ %c                                                              
+`,
+  'color:#FF8F51',
+  'color:#FFD29B',
+  'color:#FF8F51',
+  'color:#FFD29B',
+  'color:#FF8F51',
+  'color:#FFD29B',
+  'color:#FF8F51',
+);
+
 const MainPage = () => {
   const pageRefs = {
     aboutRef: useRef<HTMLDivElement>(null),
