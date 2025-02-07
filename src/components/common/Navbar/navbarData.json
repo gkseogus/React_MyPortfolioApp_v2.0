@@ -1,0 +1,18 @@
+[
+  {
+    "text": "Home",
+    "refType": "about"
+  },
+  {
+    "text": "Skills",
+    "refType": "skills"
+  },
+  {
+    "text": "Career",
+    "refType": "career"
+  },
+  {
+    "text": "Project",
+    "refType": "project"
+  }
+]
