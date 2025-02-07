@@ -4,11 +4,7 @@ import styled from '@emotion/styled';
 import Swal from 'sweetalert2';
 import ABOUT_LOGO_DATA from 'pages/AboutPage/aboutData';
 
-interface AboutPageRefProps {
-  aboutRef: React.RefObject<HTMLDivElement>;
-}
-
-const AboutPage = ({ aboutRef }: AboutPageRefProps) => {
+const AboutPage = () => {
   /**
    * 이메일 클립보드 복사
    */
@@ -42,7 +38,7 @@ const AboutPage = ({ aboutRef }: AboutPageRefProps) => {
   };
 
   return (
-    <AboutPageContainer ref={aboutRef}>
+    <AboutPageContainer>
       <GridContainer>
         <GridItems>
           <AboutPageTitle marginTopProps="0px">
@@ -147,9 +143,10 @@ const AboutPageContainer = styled.section`
   flex-direction: column;
   align-items: center;
   justify-items: center;
+  background-color: ${({ theme }) => theme.colors.white};
+
   @media screen and (max-width: 500px) {
     width: 100vw;
-    height: 400px;
   }
 `;
 
@@ -163,6 +160,7 @@ const GridContainer = styled.section`
   justify-items: center;
   align-items: center;
   margin-top: 80px;
+
   @media screen and (max-width: 500px) {
     display: none;
   }
@@ -195,7 +193,7 @@ const AboutPageTitleRollerText = styled.p`
   font-size: 36px;
   font-weight: 700;
   top: 0;
-  color: ${({ theme }) => theme.colors.orange};
+  color: ${({ theme }) => theme.colors.gray900};
   animation: ${Roller} 5s infinite;
 `;
 
@@ -243,9 +241,9 @@ const AboutPageInfoText = styled.span<{ isHover: boolean }>`
   font-size: 16px;
   font-weight: bold;
   display: inline;
-  color: ${({ theme }) => theme.colors.gray300};
+  color: ${({ theme }) => theme.colors.black};
   :hover {
-    color: ${({ isHover, theme }) => isHover && theme.colors.orange};
+    color: ${({ isHover, theme }) => isHover && theme.colors.gray900};
   }
 `;
 
@@ -299,7 +297,7 @@ const SocialMenuIcon = styled.img`
 
 const BulbImg = styled.img`
   width: 512px;
-  height: 512px;
+  height: 490px;
 `;
 
 const MoContainer = styled.section`

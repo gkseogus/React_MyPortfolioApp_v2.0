@@ -31,7 +31,6 @@ console.log(
 
 const MainPage = () => {
   const pageRefs = {
-    aboutRef: useRef<HTMLDivElement>(null),
     skillsRef: useRef<HTMLDivElement>(null),
     careerRef: useRef<HTMLDivElement>(null),
     projectRef: useRef<HTMLDivElement>(null),
@@ -39,14 +38,9 @@ const MainPage = () => {
 
   return (
     <>
-      <Navbar
-        aboutRef={pageRefs.aboutRef}
-        skillsRef={pageRefs.skillsRef}
-        careerRef={pageRefs.careerRef}
-        projectRef={pageRefs.projectRef}
-      />
+      <Navbar skillsRef={pageRefs.skillsRef} careerRef={pageRefs.careerRef} projectRef={pageRefs.projectRef} />
       <MainPageContainer>
-        <AboutPage aboutRef={pageRefs.aboutRef} />
+        <AboutPage />
         <SkillsPage skillsRef={pageRefs.skillsRef} />
         <CareerPage careerRef={pageRefs.careerRef} />
         <ProjectPage projectRef={pageRefs.projectRef} />
@@ -64,9 +58,11 @@ const MainPageContainer = styled.section`
   display: flex;
   position: relative;
   margin-top: 80px;
-  gap: 300px;
   flex-direction: column;
   align-items: center;
+
+  background-color: ${({ theme }) => theme.colors.black};
+
   @media screen and (max-width: 500px) {
     gap: 200px;
   }
