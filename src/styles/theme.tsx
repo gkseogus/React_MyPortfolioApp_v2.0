@@ -1,7 +1,7 @@
 import MEDIA_QUERY_END_POINT from 'utils/constants';
 
 export const colors = {
-  black: '#2B2B2B',
+  black: '#000000',
   white: '#FFFFFF',
   white50: '#F3EAE8',
   gray: '#DCDCDC',

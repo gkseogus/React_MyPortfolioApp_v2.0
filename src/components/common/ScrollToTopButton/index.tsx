@@ -60,7 +60,7 @@ const ScrollToTop = styled.section`
   z-index: 9;
   cursor: pointer;
   background-color: none;
-  color: ${({ theme }) => theme.colors.orange};
+  color: ${({ theme }) => theme.colors.black};
   transition: bottom 0.5s ease;
   :hover {
     animation: ${topSlice} 1s;
