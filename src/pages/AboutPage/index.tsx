@@ -60,14 +60,14 @@ const AboutPage = ({ aboutRef }: AboutPageRefProps) => {
             을 좋아하는
           </AboutPageTitle>
           <AboutPageTitle marginTopProps="50px">개발자 한대현 입니다.</AboutPageTitle>
-          <InfoContainer>
+          {/* <InfoContainer>
             <AboutPageInfoText isHover={false}>Call: 010-2246-6787</AboutPageInfoText>
             <AboutPageEmailButton role="button" onClick={handleCopyClipBoard}>
               <AboutPageInfoText role="button" aria-label="G-mail: fbzbffldj998@naver.com" isHover>
                 G-mail: fbzbffldj998@naver.com
               </AboutPageInfoText>
             </AboutPageEmailButton>
-          </InfoContainer>
+          </InfoContainer> */}
           <SocialMenu>
             <SocialMenuListUl>
               {ABOUT_LOGO_DATA.map(items => (
